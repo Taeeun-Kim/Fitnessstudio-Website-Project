@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/index.css}"/>
+    <title>Fitnessstudio &mdash; Öffnungszeiten</title>
+</head>
+
+<body class="page-hours">
+
+<header th:replace="fragments/navigation-index :: navigation-index"></header>
+
+<div class="filler"></div>
+
+<main>
+    <div class="container">
+        <h2>Öffnungszeiten</h2>
+        <div class="hours">
+            <div></div>
+            <span class="hours-header">Von</span>
+            <span class="hours-header">Bis</span>
+            <th:block th:each="hour, i : ${hours}" th:object="${hour}">
+                <span class="hours-weekday" th:switch="${i.index}">
+                    <th:block th:case="0">Montag</th:block>
+                    <th:block th:case="1">Dienstag</th:block>
+                    <th:block th:case="2">Mittwoch</th:block>
+                    <th:block th:case="3">Donnerstag</th:block>
+                    <th:block th:case="4">Freitag</th:block>
+                    <th:block th:case="5">Samstag</th:block>
+                    <th:block th:case="6">Sonntag</th:block>
+                </span>
+                <span class="hours-cell" th:text="*{key == null || value == null} ? '&mdash;' : ${hour.key}"></span>
+                <span class="hours-cell" th:text="*{key == null || value == null} ? '&mdash;' : ${hour.value}"></span>
+            </th:block>
+        </div>
+    </div>
+</main>
+
+<div class="social-media">
+    <a href="https://youtu.be/oHg5SJYRHA0"><img src="assets/icons/facebook.svg" alt="facebook"></a>
+    <a href="https://youtu.be/_V2sBURgUBI"><img src="assets/icons/instagram.svg" alt="instagram"></a>
+    <a href="https://youtu.be/IRP-2y43BLo"><img src="assets/icons/twitter.svg" alt="twitter"></a>
+</div>
+
+<div class="background"></div>
+
+</body>
+
+</html>

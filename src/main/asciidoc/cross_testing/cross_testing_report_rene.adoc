@@ -1,0 +1,146 @@
+= Cross-Testing Feedback
+
+__Durchführende Gruppe:__12
+__Anwendung von Gruppe:__16
+
+== Getestetes System
+
+Welche Aufgabe/Problemstellung löst die Anwendung.
+
+fitnessstudio
+
+== Fehler-Report
+
+systemvariablen:
+openjdk 11.0.5
+chrome
+
+== overall fehler:
+
+	a} im Fenstermodus ist der login/logoutbutton nicht einsehbar weil die seite abgeschnitten ist
+  
+	b} fomulare failen bei großen oder teils negativen angaben
+	
+
+== login Customer:
+
+	a}benutzerkonto -> bearbeiten -> 500 fallbackseite
+  
+	b}Trainings -> trainings anfragen {man kann normale trainings anfragen bevor man ein probetraining vereinbart hat}
+  
+	c}trainings -> trainings anfragen {man kann mehere trainings zur gleichen zeit anfragen}
+  
+	d}trainings -> trainings anfragen{wenn man unendlich viele @ zeichen eingibt stürzt die seite ab} 500 fallbackseite
+  
+	e}benutzerkonto -> pausieren -> man kann immernoch guthaben aufladen
+
+== login Mitarbeiter:
+
+	a}benutzkonto -> kann seine eigenen daten nicht verändern
+  
+	b}adminbereich? ->vertäge ->stift button -> 403 fallback seite
+  
+	c}adminbereich? ->vertäge ->verträge erstellen -> 403 fallback seite
+  
+	d}mitglieder -> mitglieder id {string} -> 400 fallback
+  
+	e}mitglieder -> mitgliedernummer ist ein datum?
+  
+	f}login -> staff 123-> 403 fallback nach zurückgehen immernoch eingeloggt
+  
+	g}mitglieder -> suchen -> egal nach was gesucht wird keine ausgabe von ulli
+  
+	h}dienstplan -> neuen eitrag erstellen -> es können beide mitarbeiter an der theke gleichzeitg arbeiten aber nicht als trainer
+  
+	i}
+  
+== login boss:
+
+	a}studio bearbeiten -> öffungs zeiten können willkürlich verändertwerden da nur als txt vorhaneden
+  
+	b}mitarbeiterhinzufügen -> man kann jeglichen schwachsinn angeben {zahlen als name etc}
+  
+	c}adminbereich -> trainings -> bearbeiten aktzeptieren funktioniert nicht
+  
+	d}adminbereich -> verträge -> stift knopf -> nach bestätigung der änderung vertragslaufzeit sehr hoch  400 fallback
+  
+	e}adminbereich -> verträge -> stiftknopf -> negative preise möglich
+  
+	f}adminbereich -> verträge -> stift knopf -> nach bestätigung der änderung vertrag preis sehr hoch  400 fallback
+  
+	g}adminbereich -> verträge -> verträge erstellen  -> nach bestätigung der änderung vertrag preis sehr hoch  400 fallback
+  
+	h}adminbereich -> verträge -> verträge erstellen  -> vertraglaufzeit von 0 ist möglich
+  
+	j}adminbereich -> verträge -> verträge erstellen  -> null euro möglich
+  
+	k}adminbereich -> verträge -> verträge erstellen  -> nach bestätigung der änderung vertraglaufzeit sehr hoch  400 fallback
+  
+	l}adminbereich -> verträge -> verträge erstellen  -> negativer vertraglaufzeit und preis ist möglich
+  
+	m}mitarbeiterliste -> neuen mitarbeiter hinzufügen -> man kann jeglichen schnulli angeben er wird trotzdem angelegt
+  
+	n}öffnungszeiten können nicht verändert werden nur als text auf der front seite
+  
+== shop:
+
+	a}artikel hinzufügen -> 500 fallback bei schon abgelaufenen Datum , zugroßezahl im formular angaben
+  
+	b}artikel hinzufügen -> 403 fallback bei negativer bestand, ungültigerzeitraum von rabatt, 
+  
+	c}artikel hinzufügen -> in formular lässt sich jeglicher schnulli angeben{z.b. 123 als name}
+  
+	d}lager nicht aufrufbar 500 fallback
+  
+	e}artikel übersicht -> hinzufügen funktioniert nicht
+  
+	f}einkaufwagen -> falsche kundennummer -> fallback 400
+  
+	g} einkaufen mit guthaben fallback 400 weil vermutlich kein guthaben
+  
+	h}tipp: redirects anpassen ist shop etwas unübersichtlich, rückgabe für erfolgreichen einkauf
+  
+== Regestrieren:
+
+	a}eigabe von zuvielen @ zeichen in der email 403 fallback
+  
+	b}im formular kann man jeglichen schnulli angeben der nutzer wird trotzdem erstellt
+  
+	c}keine nutzer id gefunden
+  
+|===
+
+== Sonstiges
+
+== * Optik der Anwendung
+
+ schlicht aber gut aufgeteilt sehr funktional
+ 
+ inkosistens bei zwischen fehlermeldung login und main design
+ 
+ warum lateinischer text?
+ 
+ 
+== * Fehlende Features
+
+abziehen von objekten in der cart
+
+auffülen des lagers
+
+* Interaktion mit der Anwendung (Usability)
+
+einfacher aufbau mit guten rubriken bei vertieften umgang mit der webseite ist es nicht intuitiv
+
+shop zb ist sehr unaufgeräumt
+
+== Verbesserungsvorschläge
+
+redirects ändern zb nach einkauf nicht auf hauptseite leiten
+
+an buttons mehr beschriftungen hinzufügen
+
+shop kauf ablauf intuitiver gestalten
+
+* Was kann noch weiter verbessert werden?
+
+bei fallbacks mehr angeben warum die seite abgestürtzt ist

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/shop/product.css}"/>
+    <title>Shop &mdash; Fitnessstudio</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div th:classappend="left-column" th:replace="fragments/drawer-shop :: drawer-shop"></div>
+<main class="page-shop_product">
+    <a class="btn back" href="javascript:history.back()">Zurück</a>
+    <div class="product">
+        <div class="product_left">
+            <!-- thumbnail -->
+            <img class="thumbnail" th:src="@{/assets/shop/{image}(image=${product.image})}">
+            <!-- admin -->
+            <form class="admin" th:action="@{/admin/discounts/{id}(id=${product.id})}" method="post" sec:authorize="hasRole('BOSS')">
+                <h3>Rabatt</h3>
+                <div class="row">
+                    <input class="textfield discount" name="discount" type="number" min="0" th:max="${product.price.number.floatValue()}" step="0.01" th:value="${product.discount.number.floatValue()}">
+                    <input class="textfield currency" value="EUR" readonly disabled>
+                </div>
+                <div class="actions">
+                    <input type="submit" class="btn-raised" value="Speichern">
+                </div>
+            </form>
+        </div>
+        <!-- details -->
+        <div class="product_details">
+            <h2 th:text="${product.name}"></h2>
+            <h3>Beschreibung</h3>
+            <div th:text="${product.description}"></div>
+            <h3>Eigenschaften</h3>
+            <div class="specs">
+                <span class="title">Preis</span>
+                <div>
+                    <span class="uvp" th:if="${product.hasDiscount()}" th:text="${product.uvp}"></span>
+                    <span class="price" th:classappend="${product.hasDiscount()} ? 'sale'" th:text="${product.price}"></span>
+                    <span class="percentage" th:if="${product.hasDiscount()}" th:text="'(' + (${product.discountPercentage} * -1) + '%)'"></span>
+                </div>
+                <span class="title">Auf Lager</span>
+                <span th:text="${stock_quantity}"></span>
+                <span class="title">Im Warenkorb</span>
+                <span th:text="${cart_quantity}"></span>
+            </div>
+            <form th:action="@{/shop/cart}" method="post">
+                <h3>Bestellen</h3>
+                <input type="hidden" name="product" th:value="${product.id}">
+                <input type="number" name="amount" class="textfield" min="1" th:max="${stock_quantity.amount.intValue() - cart_quantity.amount.intValue()}" placeholder="Anzahl" required>
+                <div class="actions">
+                    <input type="submit" class="btn-raised" value="In Warenkorb">
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

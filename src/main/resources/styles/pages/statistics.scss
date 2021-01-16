@@ -1,0 +1,139 @@
+@import "../main";
+@import "../components/drawer";
+@import "../fragments/navigation";
+@import "../layouts/dashboard";
+
+.title {
+    font-weight: 700;
+}
+
+.page-statistics_customer {
+    .record {
+        display: flex;
+        padding: 1rem;
+        align-items: center;
+
+        background-color: $surface-color;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        > *:not(:last-child) {
+            margin-right: 1rem;
+        }
+
+        .record_direction {
+            padding: 0.5rem;
+
+            border-radius: $radius;
+            background-color: $primary-color;
+        }
+
+        .record_timestamp {
+            margin-left: auto;
+            font-weight: 700;
+        }
+    }
+}
+
+.page-statistics_sales {
+    .record {
+        max-width: 48rem;
+
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            margin-bottom: 1rem;
+        }
+
+        .order {
+            padding: 1rem;
+
+            background-color: $surface-color;
+
+            .products {
+                display: grid;
+                grid-template-columns: min-content 1fr min-content;
+                grid-gap: 1rem;
+
+                .product {
+                    display: contents;
+
+                    span {
+                        white-space: nowrap;
+                    }
+
+                }
+            }
+
+            .total {
+                margin-top: 1rem;
+                display: flex;
+                justify-content: flex-end;
+                align-items: baseline;
+
+                h3 {
+                    margin: 0 0 0 1rem;
+                }
+            }
+        }
+
+        .positive {
+            color: #689f38;
+        }
+    }
+}
+
+.page-statistics_revenue {
+    .record {
+        display: flex;
+        max-width: 48rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+
+        background-color: $surface-color;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: #689f38;
+        }
+    }
+}
+
+.page-statistics_costs {
+    .records {
+        display: grid;
+        grid-template-columns: 2fr 1fr 2fr min-content;
+        grid-row-gap: 1rem;
+
+        .record {
+            display: contents;
+
+            > * {
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                background-color: $surface-color;
+            }
+
+            span, .negative {
+                white-space: nowrap;
+
+                &:not(:last-child) {
+                    margin-right: 0.5rem;
+                }
+            }
+
+            .negative {
+                color: $error-color;
+            }
+        }
+    }
+}

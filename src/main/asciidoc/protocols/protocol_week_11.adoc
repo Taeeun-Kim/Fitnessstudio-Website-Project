@@ -1,0 +1,44 @@
+= Protokoll Gruppe 12
+
+Treffen am 09.01.2020
+
+Ort:      APB/E065 +
+Beginn:   16:40 Uhr +
+Ende:     17:00 Uhr
+
+__Schriftführer: Emanuel Pilz__
+
+*Nächstes Treffen:* +
+16.01.2019, 16:40 Uhr, APB/E065
+
+__Teilnehmer:__
+
+- Anita _(Tutor)_
+- Moritz Lumme
+- Emanuel Pilz
+- Duy Nhu
+- René Dannroth
+- Tom Felber
+- Taeeun Kim
+
+== Was wurde besprochen?
+
+- Cross-Testing Auswertung
+- Repositories werden zur Deadline gesperrt, an der Präsentation darf aber noch gearbeitet werden.
+- Neue MagicDraw Lizenz wurde per E-Mail verschickt
+
+=== Endpräsentation
+
+- Beginn 13.15 Uhr
+(Früheres Erscheinen ist dennoch empfohlen, um technische Probleme zu vermeiden)
+
+== Was ist zu tun?
+
+- Entwicklerdokumentation fertigstellen
+- Unittests (Quality-Gate von SonarQube, bzw. Coverage von 40% erzielen)
+- Cross-Testing Bugs beheben
+
+=== Kundenwunsch
+
+Es sollen einmalige Gutscheincodes generiert werden können, die Mitglieder verwenden können, um ihr Konto aufzuladen.
+Nach der Nutzung des Gutscheincodes ist dieser verbraucht und kann nicht wieder verwendet werden.

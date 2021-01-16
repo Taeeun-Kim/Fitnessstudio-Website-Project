@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/customers.css}"/>
+    <title>Fitnessstudio &mdash; Mitglieder</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div class="left-column"></div>
+<main class="page-customers_edit">
+    <a class="btn back" th:href="@{/customers}">Zurück</a>
+    <form class="customer" method="post" role="form" th:action="@{/customers/{id}(id=${id})}" th:object="${customerForm}">
+        <h2 th:text="|*{firstname} *{lastname}|"></h2>
+        <h3>Nutzerdaten</h3>
+        <input class="textfield form-email" name="email" type="text" th:field="*{email}" required />
+        <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <div class="row">
+            <input class="textfield form-firstname" name="firstname" type="text" th:field="*{firstname}" required />
+            <input class="textfield form-lastname" name="lastname" type="text" th:value="*{lastname}" required />
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></div>
+        <div class="error" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
+        <h3>Adresse</h3>
+        <div class="row">
+            <input class="textfield form-street" name="street" th:value="*{street}"  placeholder="Straße" required />
+            <input class="textfield form-number" name="number" th:value="*{number}" placeholder="Nr." required />
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></div>
+        <div class="error" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></div>
+        <div class="row">
+            <input class="textfield form-code" name="code" type="number" th:value="*{code}" placeholder="PLZ" min="0" required />
+            <input class="textfield form-location" name="location" th:value="*{location}" placeholder="Ort" required />
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></div>
+        <div class="error" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></div>
+        <div class="actions">
+            <a class="btn" href="">Verwerfen</a>
+            <input class="btn-raised" type="submit" value ="Speichern"/>
+        </div>
+    </form>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

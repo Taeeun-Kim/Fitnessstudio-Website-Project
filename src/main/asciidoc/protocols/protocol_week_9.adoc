@@ -1,0 +1,51 @@
+= Protokoll Gruppe 12
+
+Treffen am 12.12.2019
+
+Ort:      APB/E065 +
+Beginn:   16:40 Uhr +
+Ende:     17:30 Uhr
+
+__Schriftführer: Emanuel Pilz__
+
+*Nächstes Treffen:* +
+19.12.2019, 16:40 Uhr, APB/E065
+
+__Teilnehmer:__
+
+- Anita _(Tutor)_
+- Moritz Lumme
+- Emanuel Pilz
+- Duy Nhu
+- Tom Felber
+- Taeeun Kim
+
+== Was wurde besprochen?
+
+=== Meilenstein
+
+*Abgabe: 15.12.2019 (Sonntag)*
+
+- JAR Datei erstellen und Anita zukommen lassen
+- Pflichtenheft anhängen
+
+=== Nächster Meilenstein
+
+*Crosstesting mit der anderen Gruppe*
+
+- Asciidoc: Crosstesting Protokoll
+- Benutzerhandbuch über unsere Applikation erstellen (Für die andere Gruppe)
+
+=== Endpräsentation
+
+- Rollenspiel als Präsentationsgimmick
+
+== Aktueller Stand
+
+- Implementierung fast fertig
+
+== Was ist zu tun?
+
+- Shop muss noch gemergt werden
+- Suspendierungen (1 Monat aussetzen)
+- Fehlermeldungen ins Model hinzufügen und im Front-End anzeigen

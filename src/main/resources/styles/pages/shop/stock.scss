@@ -1,0 +1,70 @@
+@import "../../main";
+@import "../../components/drawer";
+@import "../../components/textfield";
+@import "../../fragments/navigation";
+@import "../../layouts/dashboard";
+
+.page-shop_stock {
+    grid-column: 2 / 4;
+    overflow-y: auto;
+    padding-right: $margin;
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 32rem);
+        grid-gap: 2rem;
+        justify-content: center;
+        overflow: visible;
+
+        .product {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+
+            background-color: $surface-color;
+
+            > *:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+
+            .product_header {
+                display: flex;
+                align-items: center;
+
+                > *:not(:last-child) {
+                    margin-right: 2rem;
+                }
+            }
+
+            .product_items {
+                flex: 1;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+
+                    &:not(:last-child) {
+                        margin-bottom: 0.5rem;
+                    }
+
+                    &.expired {
+                        color: $error-color;
+                        fill: $error-color;
+                    }
+
+                    > *:not(:last-child) {
+                        margin-right: 1rem;
+                    }
+
+                    .item_expiry {
+                        font-weight: 700;
+                    }
+
+                    .actions {
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+    }
+}

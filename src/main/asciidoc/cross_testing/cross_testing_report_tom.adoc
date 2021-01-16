@@ -1,0 +1,45 @@
+= Cross-Testing Feedback
+
+__Durchführende Gruppe:__ 19
+
+__Anwendung von Gruppe:__ 16
+
+== Getestetes System
+Welche Aufgabe/Problemstellung löst die Anwendung.
+
+Software für Einsatz in einem Fitnessstudio
+
+Alle Tests wurden in Firefox v.71.0 ausgeführt
+
+== Fehler-Report
+|===
+
+|Pfad |Parameter |Beschreibung |Rückgabe
+| Als member eingeloggt ->
+    Benutzerkonto ->
+    Bearbeiten
+| - | Beim betätigen des Buttons wird ein 500 Error ausgegeben. | 500 Error
+| Als Boss eingeloggt ->
+    Adminbereich ->
+    Verträge
+    -> Vertrag erstellen| - | Das Erstellen eines Vertrages mit dem selben Namen eines anderen Vertrages möglich? | -
+| Als Boss eingeloggt ->
+    Adminbereich ->
+    Verträge
+    -> Vertrag erstellen/bearbeiten| - | Das Erstellen/Bearbeiten eines Vertrages mit negativem Preis ist möglich | -
+| Als Boss eingeloggt ->
+    Studio bearbeiten    | - | Das löschen der kompletten/einzelnen Öffungszeiten ist einfach möglich? | -
+| Als Boss eingeloggt ->
+    Mitarbeiter Hinzufügen  | - | Man kann Mitarbeitern negative Gehälter geben | -
+|===
+
+== Sonstiges
+* Optik relativ simpel, aber vollkommen zureichend
+* Interaktion ist recht intuitiv, ist daher also in Ordnung.
+* Der Dunkelmodus ist teilweise etwas seltsam, die weißen Input-Felder passen da nicht wirklich gut rein.
+
+== Verbesserungsvorschläge
+* Die Fehler beheben ;-)
+* Den Dunkelmodus überarbeiten
+* Die Öffnungszeiten vielleicht anders speichern. Es ist irgendwie seltsam, dass man einfach welche löschen kann,
+    ohne dass es Auswirkungen auf den Rest hat

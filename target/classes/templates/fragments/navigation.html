@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="de">
+
+<body>
+
+<header class="fragment-navigation" th:fragment="navigation" th:with="url=${#httpServletRequest.requestURI}">
+    <div class="fragment-navigation_left">
+        <img class="logo" th:src="@{/assets/logo.svg}" src="" alt="logo">
+    </div>
+    <div class="fragment-navigation_main">
+        <!-- schedule-->
+        <a class="tab dark" th:href="@{/schedule}" th:classappend="${url.startsWith('/schedule')} ? 'selected'">
+            <div class="tab_content" sec:authorize="hasRole('EMPLOYEE')">Dienstplan</div>
+            <div class="tab_content" sec:authorize="hasRole('CUSTOMER')">Training</div>
+            <div class="tab_selector"></div>
+        </a>
+        <!-- reception -->
+        <a class="tab dark" th:href="@{/desk}" th:classappend="${url.startsWith('/desk')} ? 'selected'" sec:authorize="hasRole('EMPLOYEE')">
+            <div class="tab_content">Empfang</div>
+            <div class="tab_selector"></div>
+        </a>
+        <!-- shop -->
+        <a class="tab dark" th:href="@{/shop}" th:classappend="${url.startsWith('/shop')} ? 'selected'" sec:authorize="hasRole('EMPLOYEE')">
+            <div class="tab_content">Shop</div>
+            <div class="tab_selector"></div>
+        </a>
+        <!-- customers -->
+        <a class="tab dark" th:href="@{/customers}" th:classappend="${url.startsWith('/customers')} ? 'selected'" sec:authorize="hasRole('EMPLOYEE')">
+            <div class="tab_content">Mitglieder</div>
+            <div class="tab_selector"></div>
+        </a>
+        <!-- orders -->
+        <a class="tab dark" th:href="@{/orders}" th:classappend="${url.startsWith('/orders')} ? 'selected'" sec:authorize="hasRole('CUSTOMER')">
+            <div class="tab_content">Käufe</div>
+            <div class="tab_selector"></div>
+        </a>
+    </div>
+    <div class="fragment-navigation_right">
+        <!-- statistics -->
+        <a class="tab dark" th:href="@{/statistics}" th:classappend="${url.startsWith('/statistics')} ? 'selected'" sec:authorize="${hasRole('BOSS')}">
+            <div class="tab_content">
+                <!-- graph icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path class="tab_icon" d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/>
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                </svg>
+            </div>
+            <div class="tab_selector"></div>
+        </a>
+        <!-- admin -->
+        <a class="tab dark" th:href="@{/admin}" th:classappend="${url.startsWith('/admin')} ? 'selected'" sec:authorize="${hasRole('BOSS')}">
+            <div class="tab_content">
+                <!-- wrench icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path clip-rule="evenodd" fill="none" d="M0 0h24v24H0z"/>
+                    <path class="tab_icon" d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                </svg>
+            </div>
+            <div class="tab_selector"></div>
+        </a>
+        <!-- account -->
+        <a class="tab dark" th:href="@{/profile}" th:classappend="${url.startsWith('/profile')} ? 'selected'">
+            <div class="tab_content">Konto</div>
+            <div class="tab_selector"></div>
+        </a>
+
+        <a class="btn error dark" th:href="@{/logout}">Logout</a>
+    </div>
+</header>
+
+</body>
+
+</html>

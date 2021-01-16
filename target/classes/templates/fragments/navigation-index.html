@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<body>
+
+<header class="fragment-navigation-index" th:fragment="navigation-index" th:with="url=${#httpServletRequest.requestURI}">
+    <a th:href="@{/}">
+        <img class="logo" th:src="@{/assets/logo.svg}" src="" alt="logo">
+    </a>
+    <div class="spacer"></div>
+    <!-- hours -->
+    <a class="tab dark" th:href="@{/hours}" th:classappend="${url.equals('/hours')} ? 'selected'">
+        <div class="tab_content">Öffnungszeiten</div>
+        <div class="tab_selector"></div>
+    </a>
+    <!-- contracts -->
+    <a class="tab dark" th:href="@{/contracts}" th:classappend="${url.equals('/contracts')} ? 'selected'">
+        <div class="tab_content">Verträge</div>
+        <div class="tab_selector"></div>
+    </a>
+    <a class="btn-raised dark login" th:href="@{/login}">Login</a>
+</header>
+
+</body>
+
+</html>

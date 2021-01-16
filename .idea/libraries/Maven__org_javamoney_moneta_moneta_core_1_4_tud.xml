@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.javamoney.moneta:moneta-core:1.4-tud">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/javamoney/moneta/moneta-core/1.4-tud/moneta-core-1.4-tud.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/javamoney/moneta/moneta-core/1.4-tud/moneta-core-1.4-tud-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/javamoney/moneta/moneta-core/1.4-tud/moneta-core-1.4-tud-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

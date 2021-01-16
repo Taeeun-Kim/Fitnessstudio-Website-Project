@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/admin/discounts.css}"/>
+    <title>Einstellungen &mdash; Rabatt</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-settings :: drawer-settings"></div>
+<main class="page-admin-discounts">
+    <form class="product" th:each="product : ${products}" th:action="@{/admin/discounts/{id}(id=${product.id})}" method="post">
+        <div class="product_name" th:text="${product.name}"></div>
+        <div class="product_uvp">
+            <span>UVP: </span>
+            <span th:text="${product.uvp}"></span>
+        </div>
+        <input class="textfield product_discount" name="discount" type="number" min="0"th:max="${product.price.number.floatValue()}"
+               step="0.01"th:value="${product.discount.number.floatValue()}" required>
+        <input class="textfield product_currency" value="EUR" readonly disabled>
+        <input type="submit" class="btn" value="Speichern">
+    </form>
+</main>
+<div class="right-column">
+
+</div>
+
+</body>
+
+</html>

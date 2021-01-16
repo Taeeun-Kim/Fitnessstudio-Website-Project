@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/admin/employees.css}"/>
+    <title>Einstellungen &mdash; Mitarbeiter</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-settings :: drawer-settings"></div>
+<main class="page-admin-employees">
+    <div class="employee" th:each=" employee : ${employeeList}">
+        <h3 class="employee_name" th:text="|${employee.userAccount.firstname} ${employee.userAccount.lastname}|"></h3>
+        <div class="employee_disabled" th:if="${!employee.enabled}">Deaktiviert</div>
+        <div class="employee_email" th:text="${employee.userAccount.email}"></div>
+        <div class="employee_address" th:text="${employee.address}"></div>
+        <div class="employee_salary" th:text="${employee.salary}"></div>
+        <div class="actions">
+            <form th:if="${!employee.userAccount.hasRole('BOSS')}" th:action="@{/admin/employees/{id}/toggle(id=${employee.id})}" method="post">
+                <input class="btn" type="submit" th:value="${employee.enabled} ? 'Deaktivieren' : 'Aktivieren'">
+            </form>
+            <a class="btn-raised" th:href="@{/admin/employees/{id}(id=${employee.id})}">Bearbeiten</a>
+        </div>
+    </div>
+</main>
+<div class="right-column">
+    <div class="actions">
+        <a class="btn-raised" th:href="@{/admin/employees/create}">Hinzufügen</a>
+    </div>
+</div>
+
+</body>
+
+</html>

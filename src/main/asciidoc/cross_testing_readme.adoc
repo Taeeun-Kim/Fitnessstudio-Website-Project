@@ -1,0 +1,74 @@
+```
+___________________                                 _____       _____________
+___  ____/__(_)_  /___________________________________  /____  _______  /__(_)_____
+__  /_   __  /_  __/_  __ \  _ \_  ___/_  ___/_  ___/  __/  / / /  __  /__  /_  __ \
+_  __/   _  / / /_ _  / / /  __/(__  )_(__  )_(__  )/ /_ / /_/ // /_/ / _  / / /_/ /
+/_/      /_/  \__/ /_/ /_/\___//____/ /____/ /____/ \__/ \__,_/ \__,_/  /_/  \____/
+```
+
+== Ausführung
+
+```
+java -jar swt19w12-1.0.0.BUILD-SNAPSHOT.jar
+```
+
+*Achtung!* Es wird mindestens Java 11 benötigt!
+
+== Login-Daten
+
+Folgende Accounts werden standardmäßig initialisiert.
+
+=== Boss
+
+```
+boss@email.com
+123
+```
+
+=== Kunden
+
+```
+harald@email.com
+123
+```
+
+```
+franz@email.com
+123
+```
+
+=== Mitarbeiter
+
+```
+hans@email.com
+123
+```
+
+```
+peter@email.com
+123
+```
+
+
+== Anmerkungen
+
+- *400 (Bad Request)* Fehler-Seiten sind _noch_ beabsichtigt, *500 (Internal Server Error)* jedoch nicht.
+Error Handling ist noch kaum implementiert, aber solange ihr realistische Werte angebt sollte das meiste funktionieren.
+
+- Die Kundennummern werden mit einem '#' dargestellt. In Formularen dieses bitte jedoch nicht mit angeben.
+
+- Wir haben uns bemüht die Seite intuitiv zu gestalten, sodass im besten Fall keine Anleitung benötigt ist, sondern die Sachen dort zu finden sind wo man sie erwartet. Ist an einer Stelle die Navigation verwirrend, gerne auch dokumentieren.
+
+- Der Boss kann zwar den Namen des Fitnessstudios ändern, jedoch wird dieser nirgendwo sonst auf der Seite angezeigt. _(Das Logo ist ein fixes Bild)_.
+
+== Bekannte Fehler & Probleme
+
+=== Shop
+
+- Angegebene Kredit- und Debitkarten werden nicht validiert. Ihr könnt also auch Buchstaben als Kontonummer angeben.
+
+- Gibt man bei der Bestellung eine falsche Kundennummer an, gibt es einen Fehler.
+    
+=== Registrierung
+  
+- Versucht man zweimal die gleiche E-Mail-Adresse zu registrieren gibt es ebenfalls einen Fehler

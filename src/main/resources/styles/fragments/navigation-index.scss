@@ -1,0 +1,20 @@
+@import "../main";
+@import "../components/button";
+@import "../components/tab";
+
+.fragment-navigation-index {
+    grid-column: 1 / 5;
+    grid-row: 1;
+    background-color: $primary-color;
+    display: flex;
+    align-items: center;
+    padding: 0 8rem 0 $margin;
+
+    a:not(:last-child) {
+        margin-right: 4rem;
+    }
+
+    .spacer {
+        flex: 1;
+    }
+}

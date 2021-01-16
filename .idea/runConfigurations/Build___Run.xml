@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Build &amp; Run" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="swt19w12" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="fitnessstudio.Fitnessstudio" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="libsass:compile" />
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

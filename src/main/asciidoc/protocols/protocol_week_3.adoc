@@ -1,0 +1,68 @@
+= Protokoll Gruppe 12
+
+Treffen am 30.10.2019
+
+Ort:      APB/E067 +
+Beginn:   13:00 Uhr +
+Ende:     14:00 Uhr
+
+__Schriftführer:__ Emanuel Pilz
+
+*Nächstes Treffen:* +
+07.11.2019, 16:40 Uhr, APB
+
+__Teilnehmer:__
+
+- Anita (Tutor)
+- Moritz Lumme
+- Emanuel Pilz
+- Duy Nhu
+- René Dannroth
+- Tom Felber
+- Taeeun Kim
+
+== Angesprochene Punkte
+
+- Protokolle der 2. Woche pushen/hochladen
+- Noch *Attribute* und *Methoden* zum Analyseklassendiagramm ergänzen
+- *Anwendungsfälle* (Use Cases), (*Nicht-*)*Funktionale Anforderungen* und *Akzeptanztestfälle* fehlen noch im Pflichtenheft
+- Beim nächsten Treffen eigenen Laptop mit *fertigem* Videoshop Prototypen mitbringen
+- Abzugebendes muss immer in dem neusten Stand des Master-Branches präsent sein
+- Erste Überlegungen zum *Entwurfsklassendiagramm* mit Rücksicht auf *Salespoint* Anbindung treffen
+
+Andere Fitnessstudio Gruppe: 16 +
+(Mailingliste: swt19w16@groups.tu-dresden.de)
+
+=== Anmerkungen Pflichtenheft
+
+- Manuelle Freischaltung nach Vertragsabschluss entfällt. Beim Registrieren soll der Kunde einen vorgefertigten Vertrag auswählen.
+- Vom letzten Monat einsehbare Lohnscheine (Mitarbeiter) bzw. Rechnungen (Kunden) genügen
+- Kunde *kann* einen Antrag auf Probetraining stellen
+- Angegebene Browser-Versionen noch mal überprüfen (Abschnitt Produktnutzung)
+- Groben GUI-Entwurf erstellen
+
+== Aktueller Stand
+
+- Analyseklassendiagramm erstellt (Attribute und Methode fehlen noch)
+- VideoShop-Prototypen zum Großteil fertiggestellt. Manche Aufgaben jedoch noch in Arbeit
+
+=== Pflichtenheft
+
+Folgende Abschnitte im Pflichtenheft wurden bearbeitet:
+
+- (1.) *Zusammenfassung*
+- (2.) *Aufgabenstellung und Zielsetzung* eingefügt, überarbeitet, und mit Details aus Kundengespräch ergänzt
+- (3.) *Produktnutzung*
+- (4.) *Interessensgruppen* (Stakeholders)
+- [.line-through]#(13.) Offene Punkte#
+
+Noch nicht bearbeitet:
+
+- (5.) Systemgrenze und Top-Level-Architektur
+- (6.) Anwendungsfälle
+- (7.) Funktionale Anforderungen
+- (8.) Nicht-Funktionale Anforderungen
+- (9.) GUI Prototyp
+- (10.) Datenmodell
+- (11.) Akzeptanztestfälle
+- (12.) Glossar

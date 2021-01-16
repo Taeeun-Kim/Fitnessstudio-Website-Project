@@ -1,0 +1,76 @@
+= Test-Plan
+
+Dieser Testplan stellt eine vereinfachte Version der IEEE 829-1998 Vorlage dar.
+
+== Einführung
+Dieses Dokument soll der der Qualitätssicherung dienen, indem es eine Übersicht über die geplanten Tests darstellt. Dabei werden noch keine konkreten Daten genutzt, sondern Fallunterscheidungen getroffen, die nach dem derzeitigen Kenntnisstand eintreten können. Es soll somit das spätere Erstellen von einzelnen Tests vereinfachen.
+
+== Aufbau der Testbezeichner
+Die Tests werden nach folgendem Schema gekennzeichnet:
+
+* Unit-Tests:
+    [U] - [Bereich] - [Klasse] - [Methode] - [Test-Bedingung]
+
+* Integrations-Tests:
+    [I] - [Bereich]
+
+== Test Gegenstände
+
+== Zu testende Funktionalitäten
+
+* Datenstruktur -> umfasst alle Klassen und deren Methoden
+
+* PDF-Export-Funktionalität (?)
+
+* Konfigurationsmöglichkeiten (z.B. Neuwerbungsprämie, monatliche Gebühren usw.)
+
+* Übergreifende Funktionalitäten (Zusammenspiel mehrerer Packages)
+
+== Nicht zu testende Funktionalitäten
+
+* Bibliotheken von Drittanbietern (Spring, Salespoint, IText usw.)
+
+* GUI
+
+* niedere Methoden (z.B. _get()_, _set()_ usw.)
+
+== Herangehensweise
+
+Klassen und Methoden werden mit JUnit getestet.
+
+Integrationstests laufen nach dem Bottom-Up Prinzip ab.
+
+== Umgebungsvoraussetzungen
+* Wird spezielle Hardware benötigt?
+* Welche Daten müssen bereitgestellt werden? Wie werden die Daten bereitgestellt?
+* Wird zusätzliche Software für das Testen benötigt?
+* Wie kommuniziert die Software während des Testens? Internet? Netzwerk?
+
+== Testfälle und Verantwortlichkeit
+Jede testbezogene Aufgabe muss einem Ansprechpartner zugeordnet werden.
+
+// See http://asciidoctor.org/docs/user-manual/#tables
+[options="headers"]
+|===
+|ID |Anwendungsfall |Vorbedingungen |Eingabe |Ausgabe
+|[UC0010]|Login/Logout|Login: Der Nutzer ist bereits registriert und noch nicht eingeloggt Logout: Der Nutzer ist bereits eingeloggt|ID und Password|Ergebnis der Bearbeitung
+|[UC0020]|Registrieren|Das Mitglied ist noch nicht registriert|Daten des Nutzers|Es wurde erfolgreich registriert oder wurde nicht registriert
+|[UC0030]|Rechnung über laufende Kosten|Das Mitglied ist schon mindestens einen Monat registriert|Anforderung des Rechnungseinsehens|Rechnung über laufende Kosten
+|[UC0040]|Logindaten bearbeiten|Der User ist eingeloggt|Anfordern der Logindatensbearbeitung|Zugriff auf Logindaten
+|[UC0050]|Antrag auf Probetraining|Das Mitglied hatte vorher noch kein Probetraining|Probetraining beantragen|Probetrainingsanfrage wurde geschickt
+|[UC0060]|Gutschrift|Das angeworbene Mitglied hat noch kein Konto|Mitglied wird durch ein anderes Mitglied angeworben|Ein Guthaben wird gutgeschrift
+|[UC0070]|Dienstplan ansehen/bearbeiten|Der Handelnde ist als Mitarbeiter/Chef eingeloggt|Mitarbeiter drückt Button, um Dienstplan zu bearbeiten|Dienstplan wird global aktualisiert
+|[UC0080]|Mitgliedschaft aussetzen|Das Mitglied hat dieses Jahr noch keinen Monat ausgesetzt|Das Mitglied drückt den entsprechenden Button, um seine Mitgliedschaft auszusetzen|Das Konto des Mitglieds wird für einen Monat "gesperrt"
+|[UC0090]|Kundenkonten bearbeiten/deaktivieren|Der Handelnde ist als Mitarbeiter bzw. Chef eingeloggt. Das Kundenkonto existiert|Mitarbeiter drückt einen Button, um an die Konteneinstellungen zu gelangen|Mitarbeiter speichert die Änderungen durch Drücken eines Buttons
+|[UC0100]|Urlaubsanträge stellen|Der Handelnde ist als Mitarbeiter/Chef eingeloggt|Mitarbeiter drückt entsprechenden Button|Der Antrag wird zugeschickt
+|[UC0110]|Lohnschein|Der Handelnde ist als Mitarbeiter/Chef eingeloggt|Mitarbeiter drückt entsprechenden Button|Lohnschein wird als PDF angezeigt
+|[UC0120]|Antrag auf Probetraining bearbeiten|Der Handelnde ist als Mitarbeiter eingeloggt|Der Handelnde ist als Mitarbeiter eingeloggt|Der Mitarbeiter kann durch Drücken entsprechender Buttons Anträge annehmen/ablehnen
+|[UC0130]|Urlaubsanträge|Der Handelnde ist als Chef eingeloggt|Der Chef drückt einen Button, um die Urlaubsanträge anzusehen|Der Chef drückt den entsprechenden Button, um den Antrag anzunehmen oder abzulehnen
+|[UC0140]|Aufgaben/Löhne festlegen|Der Handelnde ist als Chef eingeloggt|Der Chef drückt einen Button, um sich eine Liste aller Mitarbeiter anzeigen zu lassen|Der Chef speichert die Änderungen durch Drücken eines Buttons
+|[UC0150]|Mitarbeiter einstellen/entlassen|Der Handelnde ist als Chef eingeloggt. Der zu entlassende Mitarbeiter existiert in der Datenbank|Der Chef drückt einen Button, um einen neuen Mitarbeiter einstellen zu können/Der Chef drückt einen Button, um sich eine Liste aller Mitarbeiter anzeigen zu lassen|Der Chef erstellt das neue Konto durch Drücken eines Buttons/Der Chef drückt den entsprechenden Button, um den Mitarbeiter zu entlassen
+|[UC0160]|Mitarbeiterkonten bearbeiten|Der Handelnde ist als Chef eingeloggt|Der Chef drückt einen Button, um sich eine Liste aller Mitarbeiter anzeigen zu lassen|Der Chef bestätigt die Änderungen durch Drücken eines Buttons
+|[UC0170]|Statistiken|Der Handelnde ist als Chef eingeloggt|Der Chef drückt einen Button, um in den entsprechenden Bereich zu gelangen|Die Statistiken werden angezeigt
+|[UC0180]|Einstellungen verändern|Der Handelnde ist als Chef eingeloggt|Der Chef drückt einen Button, um in den entsprechenden Bereich zu gelangen|Der Chef speichert die Informationen durch Drücken eines Buttons
+|[UC0190]|Verkäufe verwalten|Als Mitarbeiter eingeloggt|Ein Mitglied möchte etwas kaufen|Die Thekenkraft setzt den Status der gekauften Artikel auf bezahlt, durch Drücken entsprechender Buttons
+|[UC0200]|Artikel verwalten|Der Handelnde ist als Mitarbeiter eingeloggt|Der Mitarbeiter gelangt durch Drücken eines Buttons in den Übersichtsbereich des Inventars|Der Mitarbeiter kann durch Drücken entsprechender Buttons Nachbestellungen tätigen
+|===

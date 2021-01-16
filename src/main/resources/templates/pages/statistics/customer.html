@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/statistics.css}"/>
+    <title>Statistik &mdash; Kundenverhalten</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-statistics :: drawer-statistics"></div>
+<main class="page-statistics_customer">
+    <div class="info" th:if="${records.empty}">Es gibt keine Einträge in dieser Kategorie</div>
+    <div class="record" th:each="record : ${records}">
+        <!-- arrow icon -->
+        <svg class="record_direction" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path th:if="${record.direction}" fill="#b2ff59" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+            <path th:if="${!record.direction}" fill="#ff5252" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+
+        <h3 class="record_customer-id" th:text="'#' + ${record.customer.id}"></h3>
+        <span class="record_customer-name" th:object="${record.customer.userAccount}" th:text="|*{firstname} *{lastname}|"></span>
+        <span class="record_timestamp" th:text="|${#temporals.format(record.timestamp, 'dd.MM.YY, HH:mm')} Uhr|"></span>
+    </div>
+</main>
+<div class="right-column">
+
+</div>
+
+</body>
+
+</html>

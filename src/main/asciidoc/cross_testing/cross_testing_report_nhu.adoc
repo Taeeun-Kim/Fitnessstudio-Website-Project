@@ -1,0 +1,29 @@
+= Cross-Testing Feedback
+
+Durchführende Gruppe:12
+
+Anwendung von Gruppe:16
+
+== Getestetes System
+Welche Aufgabe/Problemstellung löst die Anwendung.
+
+Software für Einsatz in einem Fitnessstudio
+
+Alle Tests wurden in Chrome Version 79.0.3945.88 ausgeführt
+
+
+
+== Fehler-Report
+|===
+|Pfad |Parameter |Beschreibung |Rückgabe
+
+| Als Boss einggelogt->Mitarbeiterliste->ID->Mitarbeiter bearbeiten->Email  | … | Email wird nicht geaendert | … |
+|===
+
+== Sonstiges
+* Optik der Anwendung: Simpel, monoton, "Minimalismus"-Stil. 
+* Fehlende Features
+* Interaktion mit der Anwendung (Usability): Sehr gut, man findet alle Funktionalitaeten einfach und schnell. 
+
+== Verbesserungsvorschläge
+* Was kann noch weiter verbessert werden?

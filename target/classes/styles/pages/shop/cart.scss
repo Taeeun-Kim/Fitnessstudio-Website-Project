@@ -1,0 +1,107 @@
+@import "../../main";
+@import "../../components/drawer";
+@import "../../components/textfield";
+@import "../../fragments/navigation";
+@import "../../layouts/dashboard";
+
+.page-shop_cart, .page-shop_checkout {
+    h2 {
+        margin-bottom: 1rem;
+
+        &:not(:first-child) {
+            margin-top: 2rem;
+        }
+    }
+
+    .title {
+        font-weight: 700;
+    }
+
+    .items {
+        display: grid;
+        grid-template-columns: 1fr 2fr min-content;
+        grid-row-gap: 1rem;
+
+        .item {
+            display: contents;
+
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+
+            > * {
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                background-color: $surface-color;
+            }
+
+            .item_product:hover {
+                text-decoration: underline;
+            }
+
+            .item_amount {
+                display: flex;
+                align-items: center;
+
+                > *:not(:last-child) {
+                    margin-bottom: 0;
+                    margin-right: 1rem;
+                }
+
+                .textfield {
+                    width: 6rem;
+                }
+            }
+
+            .item_price {
+                font-weight: 700;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .total {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: baseline;
+
+        h3 {
+            margin: 0 0 0 1rem;
+        }
+    }
+
+    .buy {
+        margin-top: 2rem;
+        margin-right: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        > *:not(:last-child) {
+            margin-bottom: 0;
+            margin-right: 2rem;
+        }
+
+        .buy_customer {
+            width: 16rem;
+            margin-right: auto;
+        }
+    }
+
+    .payment {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content min-content;
+        grid-auto-flow: column;
+        grid-gap: 1rem;
+        align-items: start;
+
+        > .panel {
+            padding: 1rem;
+
+            background-color: $surface-color;
+        }
+    }
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/schedule.css}"/>
+    <title>Dienstplan &mdash; Fitnessstudio</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div th:classappend="left-column" th:replace="fragments/drawer-schedule :: drawer-schedule" sec:authorize="hasRole('EMPLOYEE')"></div>
+<div class="left-column" sec:authorize="hasRole('CUSTOMER')">
+    <div class="trial-header"><h2>Probe</h2></div>
+    <div class="panel trials">
+        <!-- Customer -->
+        <div sec:authorize="hasRole('CUSTOMER')">
+            <form method="post" th:action="@{/schedule/trial}" role="form" th:object="${trialRequestForm}" class="empty" th:if="${trialList.isEmpty()}">
+                <div>Du kannst einmalig mit einem Angestellten ein Probetraining vereinbaren.</div>
+                <h3>Datum</h3>
+                <input class="textfield" name="startDate" th:field="*{startDate}" type="date" required/>
+                <div class="error" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
+                <h3>Beginn</h3>
+                <input class="textfield" name="startTime" th:field="*{startTime}" type="time" required/>
+                <div class="error" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+                <h3>Ende</h3>
+                <input class="textfield" name="endTime" th:field="*{endTime}" type="time" required/>
+                <div class="error" th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}"></div>
+                <input type="hidden" name="customerId" th:value="${customerId}"/>
+                <h3>Trainer</h3>
+                <select class="textfield" name="employeeId" th:field="*{employeeId}">
+                    <option th:each="employee : ${employees}" th:text="${employee.userAccount.firstname + ' ' + employee.userAccount.lastname}" th:value="${employee.id}">Mitarbeiter</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('employeeId')}" th:errors="*{employeeId}"></div>
+                <input class="btn-raised" type="submit" value="Anfragen">
+            </form>
+            <div class="trial" th:each="trialRequest : ${trialList}">
+                <div th:with="startTime=${trialRequest.start.toLocalTime()}, endTime=${trialRequest.end.toLocalTime()}">
+                    <div class="user" th:text="${trialRequest.employee.userAccount.firstname + ' ' + trialRequest.employee.userAccount.lastname}"></div>
+                    <div th:text="${#temporals.format(trialRequest.start.toLocalDate(), 'dd.MM.yyyy')}">heute</div>
+                    <div th:text="${#temporals.format(startTime, 'HH:mm') + ' - ' + #temporals.format(endTime, 'HH:mm')}"></div>
+                    <div th:text="|Anfrage ${trialRequest.status.localization}|"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<main class="page-schedule">
+    <div class="date" th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}">
+        <a class="btn icon" th:href="${urlBuilder.replaceQueryParam('date', #temporals.format(today.minusDays(7), 'yyyy-MM-dd')).toUriString()}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path class="icon" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/>
+            </svg>
+        </a>
+        <a class="btn icon" th:href="${urlBuilder.replaceQueryParam('date', #temporals.format(today.plusDays(7), 'yyyy-MM-dd')).toUriString()}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path class="icon" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+            </svg>
+        </a>
+    </div>
+    <div class="schedule">
+        <!-- Weekday Headings -->
+        <div></div>
+        <div class="heading">
+            <span>Heute</span>
+            <h3 th:text="${#temporals.format(today, 'dd.MM.yyyy')}"></h3>
+        </div>
+        <div class="heading">
+            <span>Morgen</span>
+            <h3 th:text="${#temporals.format(today.plusDays(1), 'dd.MM.yyyy')}"></h3>
+        </div>
+        <h3 class="heading" th:text="${#temporals.format(today.plusDays(2), 'dd.MM.yyyy')}"></h3>
+        <h3 class="heading" th:text="${#temporals.format(today.plusDays(3), 'dd.MM.yyyy')}"></h3>
+        <h3 class="heading" th:text="${#temporals.format(today.plusDays(4), 'dd.MM.yyyy')}"></h3>
+        <h3 class="heading" th:text="${#temporals.format(today.plusDays(5), 'dd.MM.yyyy')}"></h3>
+        <h3 class="heading" th:text="${#temporals.format(today.plusDays(6), 'dd.MM.yyyy')}"></h3>
+
+        <!-- Time Scale -->
+        <th:block th:each="hour : ${#numbers.sequence(0, 24, 2)}">
+            <span class="scale_hint" th:text="|${hour}:00 Uhr|" th:style="|grid-column: 1; grid-row: minute ${hour*30}|"></span>
+            <div class="scale_hr-x" th:style="|grid-column-start: day 1; grid-column-end: day 8; grid-row: minute ${hour*30+1}|"></div>
+        </th:block>
+        <th:block th:each="day : ${#numbers.sequence(1, 6)}">
+            <div class="scale_hr-y" th:style="|grid-column: day ${day}; grid-row: minute 1 / minute 720|"></div>
+        </th:block>
+
+        <!-- Shift Cells -->
+        <div class="cell" th:each="shift : ${shiftList}" th:if="${shift.start.toLocalDate().isBefore(today.plusDays(7)) && shift.start.toLocalDate().isAfter(today.minusDays(1))}" th:style="|
+            grid-column: day ${T(Math).floorMod(shift.start.dayOfWeek.value - today.dayOfWeek.value, 7) + 1};
+            grid-row-start: minute ${(shift.start.toLocalTime().toSecondOfDay()/120)+1};
+            grid-row-end: minute ${(shift.end.toLocalTime().toSecondOfDay()/120)+1}
+        |">
+            <a class="shift" th:href="@{/schedule/shift/{id}(id=${shift.id})}" th:classappend="${employeeId == shift.employee.id} ? 'selected'">
+                <span class="shift_department" th:text="${shift.department.localization}"></span>
+                <span class="shift_user" th:text="|${shift.employee.userAccount.firstname} ${shift.employee.userAccount.lastname}|"></span>
+                <span class="shift_time" th:text="|${#temporals.format(shift.start, 'HH:mm')} &ndash; ${#temporals.format(shift.end, 'HH:mm')}|"></span>
+            </a>
+        </div>
+
+        <!-- Trial Cells -->
+        <div class="cell" th:each="trial : ${trialList}" th:if="${trial.start.toLocalDate().isBefore(today.plusDays(7)) && trial.start.toLocalDate().isAfter(today.minusDays(1))}" th:style="|
+            grid-column: day ${T(Math).floorMod(trial.start.dayOfWeek.value - today.dayOfWeek.value, 7) + 1};
+            grid-row-start: minute ${(trial.start.toLocalTime().toSecondOfDay()/120)+1};
+            grid-row-end: minute ${(trial.end.toLocalTime().toSecondOfDay()/120)+1}
+        |">
+            <div class="trial" th:if="${trial.status.localization} != 'rejected'" th:classappend="${trial.status.localization}">
+                <span class="trial_status" sec:authorize="hasRole('EMPLOYEE')">Probetraining</span>
+                <span class="trial_status" sec:authorize="hasRole('CUSTOMER')" th:text="${trial.status.localization}"></span>
+                <span class="trial_user" sec:authorize="hasRole('EMPLOYEE')" th:text="|${trial.customer.userAccount.firstname} ${trial.customer.userAccount.lastname}|"></span>
+                <span class="trial_time" th:text="|${#temporals.format(trial.start, 'HH:mm')} &ndash; ${#temporals.format(trial.end, 'HH:mm')}|"></span>
+            </div>
+        </div>
+
+        <!-- Training Cells -->
+        <div class="cell" th:each="training : ${trainingList}" th:if="${training.start.toLocalDate().isBefore(today.plusDays(7)) && training.start.toLocalDate().isAfter(today.minusDays(1))}" th:style="|
+            grid-column: day ${T(Math).floorMod(training.start.dayOfWeek.value - today.dayOfWeek.value, 7) + 1};
+            grid-row-start: minute ${(training.start.toLocalTime().toSecondOfDay()/120)+1};
+            grid-row-end: minute ${(training.end.toLocalTime().toSecondOfDay()/120)+1}
+        |">
+            <a class="training" th:href="@{/schedule/training/{id}(id=${training.id})}">
+                <span class="training_time" th:text="|${#temporals.format(training.start, 'HH:mm')} &ndash; ${#temporals.format(training.end, 'HH:mm')}|"></span>
+            </a>
+        </div>
+
+        <!-- Holiday Cells -->
+        <div class="cell" th:each="holiday : ${holidayList}" th:if="${holiday.start.toLocalDate().isBefore(today.plusDays(7)) && holiday.start.toLocalDate().isAfter(today.minusDays(1))}" th:style="|
+            grid-column-start: day ${holiday.start.dayOfWeek.value - today.dayOfWeek.value + 1};
+            grid-column-end: day ${holiday.end.toLocalDate().isAfter(today.plusDays(7)) ? '8' : (T(Math).floorMod(holiday.end.dayOfWeek.value - today.dayOfWeek.value, 7) + 2)};
+            grid-row-start: minute 1;
+            grid-row-end: minute 721;
+        |">
+            <div class="holiday" th:if="${holiday.status.localization} != 'rejected'" th:classappend="${holiday.status.localization}">
+                <span class="holiday_status" th:text="${holiday.status.localization}"></span>
+                <span class="holiday_title">Urlaub</span>
+                <span class="holiday_time" th:text="|${#temporals.format(holiday.start, 'dd.MM')} &ndash; ${#temporals.format(holiday.end, 'dd.MM')}|"></span>
+            </div>
+        </div>
+
+        <!-- Opening Hours Indicator -->
+        <th:block th:each="day, iter : ${hours}" th:if="${day.key != null && day.value != null}">
+            <div class="hour" th:style="|grid-column-start: day ${T(Math).floorMod(iter.index - today.dayOfWeek.value + 1, 7) + 1};
+                grid-row-start: minute ${(day.key.toSecondOfDay()/120)+1};
+                grid-row-end: minute ${(day.value.toSecondOfDay()/120)+1};|">
+            </div>
+        </th:block>
+    </div>
+</main>
+<div class="right-column">
+    <!-- Add Shift (Employee) -->
+    <form sec:authorize="hasRole('EMPLOYEE')" class="panel add" method="post" th:action="@{/schedule/shift}" role="form" th:object="${shiftForm}">
+        <h2>Schicht</h2>
+        <h3>Datum</h3>
+        <input class="textfield" name="startDate" th:field="*{startDate}" type="date" required />
+        <div class="error" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
+        <input class="textfield" name="startTime" th:field="*{startTime}" type="time" required />
+        <div class="error" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+        <input class="textfield" name="endTime" th:field="*{endTime}" type="time" required />
+        <div class="error" th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}"></div>
+        <input type="hidden" name="employeeId" th:value="${employeeId}"/>
+        <h3>Bereich</h3>
+        <select class="textfield" name="department">
+            <option th:each="department : ${departments}" th:text="${department.localization}" th:value="${department}"  th:field="*{department}">Bereich</option>
+        </select>
+        <div class="error" th:if="${#fields.hasErrors('department')}" th:errors="*{department}"></div>
+        <div class="actions">
+            <input class="btn-raised" type="submit" value="Eintragen">
+        </div>
+    </form>
+    <!-- Add Training (Customer) -->
+    <form sec:authorize="hasRole('CUSTOMER')" class="panel add" method="post" th:action="@{/schedule/training}" role="form" th:object="${trainingForm}">
+        <h2>Training</h2>
+        <h3>Datum</h3>
+        <input class="textfield" name="startDate" th:field="*{startDate}" type="date" required />
+        <div class="error" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
+        <h3>Beginn</h3>
+        <input class="textfield" name="startTime" th:field="*{startTime}" type="time" required />
+        <div class="error" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+        <h3>Ende</h3>
+        <input class="textfield" name="endTime" th:field="*{endTime}" type="time" required />
+        <div class="error" th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}"></div>
+        <input type="hidden" name="customerId" th:value="${customerId}"/>
+        <div class="actions">
+            <input class="btn-raised" type="submit" value="Eintragen">
+        </div>
+    </form>
+    <!-- Trial Requests -->
+    <th:block sec:authorize="hasRole('EMPLOYEE')">
+        <div class="requests-header"><h2>Probetraining</h2></div>
+        <div class="panel requests">
+            <!-- Employee -->
+            <div>
+                <p th:if="${trialRequestList.isEmpty()}">Es gibt keine ausstehenden Anfragen.</p>
+                <div class="request" th:each="trial : ${trialRequestList}">
+                    <div th:with="user = ${trial.customer.userAccount}">
+                        <div class="user" th:text="${user.firstname + ' ' + user.lastname}">Max Mustermann</div>
+                        <div th:text="${#temporals.format(trial.start.toLocalDate(), 'dd.MM.yyyy')}">heute</div>
+                        <div th:text="${#temporals.format(trial.start.toLocalTime(), 'HH:mm') + ' - ' + #temporals.format(trial.end.toLocalTime(), 'HH:mm')}">18:00 &ndash; 19:00</div>
+                    </div>
+                    <form th:action="@{/schedule/trial/{id}(id=${trial.id})}" method="post">
+                        <input type="hidden" name="status" th:value="accept">
+                        <input type="submit" class="btn" value="Annehmen">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</div>
+</body>
+
+</html>

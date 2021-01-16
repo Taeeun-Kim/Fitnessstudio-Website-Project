@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<body>
+
+<div class="fragment-settings drawer" th:fragment="drawer-statistics" th:with="url=${#httpServletRequest.requestURI}">
+    <a class="drawer_item" th:href="@{/statistics/customer}" th:classappend="${url.equals('/statistics/customer')} ? 'selected'">Kundenverhalten</a>
+    <a class="drawer_item" th:href="@{/statistics/sales}" th:classappend="${url.equals('/statistics/sales')} ? 'selected'">Verkauf</a>
+    <a class="drawer_item" th:href="@{/statistics/revenue}" th:classappend="${url.equals('/statistics/revenue')} ? 'selected'">Umsatz</a>
+    <a class="drawer_item" th:href="@{/statistics/costs}" th:classappend="${url.equals('/statistics/costs')} ? 'selected'">Kosten</a>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/shop/order.css}"/>
+    <title>Bestellung &mdash; Fitnessstudio</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div class="left-column"></div>
+<main class="page-shop_order">
+    <a class="back btn" sec:authorize="hasRole('EMPLOYEE')" th:href="@{/shop}">Zurück zum Shop</a>
+    <a class="back btn" sec:authorize="hasRole('CUSTOMER')" th:href="@{/orders}">Zurück</a>
+    <h2>Bestellung</h2>
+    <!-- cancelled -->
+    <div class="info" th:if="${order.orderStatus == T(org.salespointframework.order.OrderStatus).CANCELLED}">
+        Die Bestellung wurde abgebrochen.
+    </div>
+    <!-- completed -->
+    <div class="order" th:if="${order.orderStatus == T(org.salespointframework.order.OrderStatus).COMPLETED}">
+        <div class="details">
+            <h4>Bestellnummer</h4>
+            <div th:text="${order.id}"></div>
+            <h4>Bestelldatum</h4>
+            <div th:text="${#temporals.format(order.dateCreated)}"></div>
+        </div>
+        <h3>Produkte</h3>
+        <div class="products">
+            <div class="product" th:each="orderLine : ${order.orderLines}">
+                <div th:text="${orderLine.productName}"></div>
+                <div>
+                    <span class="title">Anzahl: </span>
+                    <span th:text="${orderLine.quantity}"></span>
+                </div>
+                <span th:text="${orderLine.price}"></span>
+            </div>
+        </div>
+        <div class="total">
+            <span class="title">Gesamt</span>
+            <h3 th:text="${order.total}"></h3>
+        </div>
+    </div>
+    <!-- coupon -->
+    <div class="coupon" th:if="${coupon}">
+        <h3>Coupon</h3>
+        <div class="code" th:text="${coupon.code}"></div>
+    </div>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

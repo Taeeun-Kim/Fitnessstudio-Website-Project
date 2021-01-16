@@ -1,0 +1,19 @@
+@import "../../main";
+@import "../../components/drawer";
+@import "../../components/textfield";
+@import "../../fragments/navigation";
+@import "../../layouts/dashboard";
+
+.page-shop_coupon {
+    h2 {
+        margin-bottom: 1rem;
+
+        &:not(:first-child) {
+            margin-top: 2rem;
+        }
+    }
+
+    .title {
+        font-weight: 700;
+    }
+}

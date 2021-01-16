@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "fitnessstudio",
+      "type": "fitnessstudio.properties.FitnessstudioProperties",
+      "sourceType": "fitnessstudio.properties.FitnessstudioProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "fitnessstudio.bounty",
+      "type": "java.lang.Float",
+      "sourceType": "fitnessstudio.properties.FitnessstudioProperties"
+    },
+    {
+      "name": "fitnessstudio.business-hours",
+      "type": "java.util.List<java.util.Map$Entry<java.time.LocalTime,java.time.LocalTime>>",
+      "sourceType": "fitnessstudio.properties.FitnessstudioProperties"
+    },
+    {
+      "name": "fitnessstudio.name",
+      "type": "java.lang.String",
+      "sourceType": "fitnessstudio.properties.FitnessstudioProperties"
+    }
+  ],
+  "hints": []
+}

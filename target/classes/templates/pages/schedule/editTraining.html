@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/schedule.css}"/>
+    <title>Training &mdash; Fitnessstudio</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div class="left-column"></div>
+<main class="page-schedule_edit">
+    <a class="btn back" th:href="@{/schedule}">Zurück</a>
+    <form method="post" th:action="@{/schedule/training/{id}(id=${training.id})}" role="form" th:object="${trainingForm}">
+        <h2>Training bearbeiten</h2>
+        <input class="textfield" name="startDate" th:value="${training.start.toLocalDate()}" th:field="*{startDate}" type="date" required />
+        <div class="error" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
+        <div class="row">
+            <input class="textfield" name="startTime" th:value="${#temporals.format(training.start, 'HH:mm')}" th:field="*{startTime}" type="time" required />
+            <input class="textfield" name="endTime" th:value="${#temporals.format(training.end, 'HH:mm')}" th:field="*{endTime}" type="time" required />
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+        <div class="error" th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}"></div>
+        <input type="hidden" name="customerId" th:value="${customerId}"/>
+        <div class="actions">
+            <input type="submit" name="delete" class="btn" th:value="Löschen">
+            <input type="submit" name="save" class="btn-raised" th:value="Speichern">
+        </div>
+    </form>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

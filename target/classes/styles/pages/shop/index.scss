@@ -1,0 +1,27 @@
+@import "../../main";
+@import "../../components/card";
+@import "../../components/drawer";
+@import "../../fragments/navigation";
+@import "../../layouts/dashboard";
+
+.page-shop {
+    padding-left: $margin;
+    padding-right: $margin;
+    margin-left: -$margin;
+    grid-column: 2 / 4;
+    overflow-y: auto;
+
+    .container {
+        overflow: visible;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 20rem);
+        grid-template-rows: repeat(auto-fill, 24rem);
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+
+    .card .uvp {
+        font-weight: 400;
+        text-decoration: line-through;
+    }
+}

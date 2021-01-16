@@ -1,0 +1,67 @@
+@import "../../components/textfield";
+@import "../../components/drawer";
+@import "../../fragments/navigation";
+@import "../../layouts/dashboard";
+
+.page-admin-contracts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-right: $margin;
+
+    .contracts {
+        display: inline-flex;
+        flex-direction: column;
+        margin: 0 auto;
+
+        .contract {
+            display: inline-flex;
+            padding: 2rem;
+            width: 100%;
+
+            background-color: $surface-color;
+
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+
+            .details {
+                flex: 1;
+                margin-right: 2rem;
+
+                .contract_description {
+                    max-width: 32rem;
+                    margin-left: 2rem;
+                }
+
+                .contract_fee {
+                    font-weight: 700;
+                }
+            }
+
+            .actions {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+
+                > *:not(:last-child) {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
+
+.page-admin-contracts_add, .page-admin-contracts_edit {
+    .back {
+        margin-bottom: 2rem;
+    }
+
+    .contract {
+        padding: 2rem;
+
+        background-color: $surface-color;
+    }
+}

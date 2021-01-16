@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/admin/holidays.css}"/>
+    <title>Einstellungen &mdash; Urlaubsanträge</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-settings :: drawer-settings"></div>
+<main class="page-admin-holidays">
+    <h2>Ausstehend</h2>
+    <p th:if="${pending.empty}">
+        Es gibt keine ausstehenden Urlaubsanträge.
+    </p>
+    <div class="holiday pending" th:each="holiday : ${pending}">
+        <h3 th:text="|${holiday.employee.userAccount.firstname} ${holiday.employee.userAccount.lastname}|"></h3>
+        <div th:text="|${#temporals.format(holiday.start, 'dd.MM.yyyy')} &ndash; ${#temporals.format(holiday.end, 'dd.MM.yyyy')}|"></div>
+        <div class="actions">
+            <form th:action="@{/admin/holidays/{id}(id=${holiday.id})}" method="post">
+                <input type="hidden" name="status" value="rejected">
+                <input type="submit" class="btn error" value="Ablehnen">
+            </form>
+            <form th:action="@{/admin/holidays/{id}(id=${holiday.id})}" method="post">
+                <input type="hidden" name="status" value="accepted">
+                <input type="submit" class="btn" value="Annehmen">
+            </form>
+        </div>
+    </div>
+    <th:block th:if="${!accepted.empty}">
+        <h2>Angenommen</h2>
+        <p>
+            Angenommene Urlaubsanträge können nicht mehr widerrufen werden.
+        </p>
+        <div class="holiday accepted" th:each="holiday : ${accepted}">
+            <h3 th:text="|${holiday.employee.userAccount.firstname} ${holiday.employee.userAccount.lastname}|"></h3>
+            <div th:text="|${#temporals.format(holiday.start, 'dd.MM.yyyy')} &ndash; ${#temporals.format(holiday.end, 'dd.MM.yyyy')}|"></div>
+        </div>
+    </th:block>
+    <th:block th:if="${!rejected.empty}">
+        <h2>Abgelehnt</h2>
+        <p>
+            Bereits abgelehnte Urlaubsanträge können nachträglich noch angenommen werden.
+        </p>
+        <div class="holiday rejected" th:each="holiday : ${rejected}">
+            <h3 th:text="|${holiday.employee.userAccount.firstname} ${holiday.employee.userAccount.lastname}|"></h3>
+            <div th:text="|${#temporals.format(holiday.start, 'dd.MM.yyyy')} &ndash; ${#temporals.format(holiday.end, 'dd.MM.yyyy')}|"></div>
+            <div class="actions">
+                <form th:action="@{/admin/holidays/{id}(id=${holiday.id})}" method="post">
+                    <input type="hidden" name="status" value="accepted">
+                    <input type="submit" class="btn" value="Annehmen">
+                </form>
+            </div>
+        </div>
+    </th:block>
+</main>
+<div class="right-column">
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/static/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/admin/contracts.css}"/>
+    <title>Einstellungen &mdash; Verträge</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-settings :: drawer-settings"></div>
+<main class="page-admin-contracts">
+    <div class="contracts">
+        <div class="contract" th:each="contract : ${contracts}">
+            <div class="details">
+                <h2 class="contract_title" th:text="${contract.title}"></h2>
+                <p class="contract_description" th:text="${contract.description}"></p>
+                <span class="contract_fee" th:text="${contract.fee}"></span>
+            </div>
+            <div class="actions">
+                <form th:action="@{/admin/contracts/{id}/delete(id=${contract.getId()})}" method="post">
+                    <input type="submit" class="btn" value="Löschen">
+                </form>
+                <a th:href="@{/admin/contracts/{id}(id=${contract.getId()})}" class="btn-raised">Bearbeiten</a>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="right-column">
+    <div class="actions">
+        <a th:href="@{/admin/contracts/add}" class="btn-raised">Hinzufügen</a>
+    </div>
+</div>
+
+</body>
+
+</html>

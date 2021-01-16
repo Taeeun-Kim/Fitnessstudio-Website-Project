@@ -1,0 +1,65 @@
+﻿= Zeiterfassung für Gruppe 12
+
+Notieren Sie die Zeit in Minuten für jeden Entwickler und – getrennt davon – für Team-Treffen pro Woche (Wochengranularität).
+Die individuell erfasste Zeit beinhaltet auch das Lesen von Dokumentationen, Besprechungen mit Teamkollegen und sonstige auf das Praktikum bezogene Aufgaben, jedoch *nicht* das Team-Treffen (= letzte Spalte).
+
+// See http://asciidoctor.org/docs/user-manual/#tables
+|===
+|Woche |Moritz |Emanuel |Nhu |René|Tom |Taeeun |Meeting
+
+|1  |720   |120    |120    |420    |120  |180    |120
+|2  |360   |600    |720   | 620 | 330   |300    |300
+|3  |1320   |1440    |305   |755    |1000    |720    |420
+|4  |300   |420    |230    |600   |240    |300    |120
+|5  |660   |1130    |780    |1100  |660    |600    |200
+|6  |720   |780    |710    |860   |780    |500    |230    
+|7  |840   |990    |200    |700   |500    |300    |360
+|8  |930   |1320    |900    |1025   |960    |920    |300    
+|9  |720   |960    |500   |575  |660    |820    |300    
+|10  |900   |600    |650    |750   |680    |540    |360    
+|11  |900   |1080    |600    |  650  |720    |360    |480    
+|12  |900   |1200    |600   |700   |900    |780    |420
+|===
+
+Bitte tragen Sie am Ende des Praktikums noch folgende weitere Werte ein:
+Summe der Arbeitsstunden pro Student:
+
+SUMME(SPALTE(DevX))
+
+Moritz: 9270 min = 154,5 h
+
+Emanuel: 10640 min = 177,3333 h
+
+Nhu: 6315 min = 105,25 h
+
+René: 8755 min = 145,91 h
+
+Tom: 8230 min = 137,16 h
+
+Taeeun: 5770 min = 95,33 h
+
+Teammeeting: 3610 min = 60,16 h
+
+Arbeitsstunden pro Woche pro Student:
+
+SUMME(SPALTE(DevX)) / 12
+
+Moritz: 9270 min / 12 = 772,5 min = 12,875 h
+
+Emanuel: 10640 min / 12 = 886,666 min = 14,77 h
+
+Nhu: 6315 min / 12 = 526,25 min = 8,77 h
+
+René: 8755 min / 12 = 729,5 min = 12,15 h
+
+Tom: 8230 min / 12 = 685,83 min = 11,43 h
+
+Taeeun: 5770 min / 12 = 480,833 min = 8,013 h
+
+Teammeeting: 3610 min / 12 = 300,83 min = 5,01 h
+
+Durchschnittliche Arbeitzeit aller Studenten pro Woche:
+
+(SUMME(SPALTE(Dev1)) + SUMME(SPALTE(Dev2)) + SUMME(SPALTE(Dev3)) + SUMME(SPALTE(Dev4)) + SUMME(SPALTE(Dev5)) +SUMME(SPALTE(Dev6))) / 6
+
+(Moritz: 9270 min +Emanuel: 10640 min +Nhu: 6315 min +René: 8755 min +Tom: 8230 min +Taeeun: 5770) / 6 = 8163,33 min = 136,05 h

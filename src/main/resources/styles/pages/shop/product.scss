@@ -1,0 +1,75 @@
+@import "../../main";
+@import "../../components/drawer";
+@import "../../components/textfield";
+@import "../../fragments/navigation";
+@import "../../layouts/dashboard";
+
+.page-shop_product {
+    .back {
+        margin-bottom: 2rem;
+    }
+
+    .product {
+        display: flex;
+
+        .product_left {
+            flex: 1;
+            margin-right: 2rem;
+
+            .thumbnail {
+                width: 100%;
+                border-radius: 0.25rem;
+                margin-bottom: 2rem;
+            }
+
+            .admin {
+                padding: 1rem;
+
+                background-color: $surface-color;
+
+                .row {
+                    display: flex;
+
+                    > *:not(:last-child) {
+                        margin-right: 1rem;
+                    }
+
+                    .currency {
+                        width: 4rem;
+                    }
+                }
+            }
+        }
+
+        .product_details {
+            flex: 2;
+            padding: 1rem;
+            border-radius: 0.25rem;
+
+            background-color: $surface-color;
+
+            .specs {
+                display: grid;
+                grid-template-columns: min-content auto;
+                grid-gap: 1rem;
+
+                .title {
+                    font-weight: 700;
+                    white-space: nowrap;
+                }
+
+                .uvp {
+                    text-decoration: line-through;
+                }
+
+                .sale {
+                    font-weight: 700;
+                }
+            }
+
+            h3 {
+                margin: 2rem 0 1rem 0;
+            }
+        }
+    }
+}

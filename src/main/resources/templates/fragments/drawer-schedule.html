@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<body>
+
+<div class="fragment-schedule drawer" th:fragment="drawer-schedule" th:with="filter=${#request.getParameter('filter')}, url=${#request.requestURI}, builder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}" >
+    <a class="drawer_item" th:href="${builder.replacePath('/schedule').replaceQueryParam('filter', null).replaceQueryParam('department', null).toUriString()}" th:classappend="${filter == null || filter.isBlank()} ? 'selected'">Alle Schichten</a>
+    <a class="drawer_item" th:href="${builder.replacePath('/schedule').replaceQueryParam('filter', 'personal').toUriString()}" th:classappend="${filter != null && filter.equals('personal')} ? 'selected'">Meine Schichten</a>
+    <h3 class="drawer_header">Bereiche</h3>
+    <th:block th:with="department=${#request.getParameter('department')}">
+        <a class="drawer_item" th:href="${builder.replacePath('/schedule').replaceQueryParam('filter', 'department').replaceQueryParam('department', 'training').toUriString()}" th:classappend="${department != null && department.equals('training')} ? 'selected'">Training</a>
+        <a class="drawer_item" th:href="${builder.replacePath('/schedule').replaceQueryParam('filter', 'department').replaceQueryParam('department', 'shop').toUriString()}" th:classappend="${department != null && department.equals('shop')} ? 'selected'">Theke</a>
+        <a class="drawer_item" th:href="${builder.replacePath('/schedule').replaceQueryParam('filter', 'department').replaceQueryParam('department', 'cleaning').toUriString()}" th:classappend="${department != null && department.equals('cleaning')} ? 'selected'">Reinigung</a>
+    </th:block>
+    <a class="btn dark" th:href="@{/schedule/holiday}" style="margin-top: auto">Urlaub beantragen</a>
+</div>
+
+</body>
+
+</html>

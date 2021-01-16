@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/profile.css}"/>
+    <title>Fitnessstudio &mdash; Konto</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div th:classappend="left-column" th:replace="fragments/drawer-profile :: drawer-profile"></div>
+<main class="page-profile_account">
+    <div class="balance">
+        <span>Kontostand:</span>
+        <h2 th:text="${customer.balance}"></h2>
+    </div>
+    <form th:action="@{/profile/account}" method="post">
+        <h3>Auffüllen</h3>
+        <input class="textfield" name="credit" type="number" min="0" step="0.01" placeholder="Betrag" required>
+        <div class="actions">
+            <input class="btn-raised" type="submit">
+        </div>
+    </form>
+    <form th:action="@{/profile/account/coupon}" method="post" th:object="${couponForm}">
+        <h3>Coupon einlösen</h3>
+        <input class="textfield" name="code" placeholder="Code" required th:field="*{code}">
+        <div class="error" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></div>
+        <div class="actions">
+            <input class="btn-raised" type="submit">
+        </div>
+    </form>
+</main>
+<div class="right-column">
+    <a class="btn-raised" th:href="@{/profile/account/pdf}">Kontoauszug</a>
+</div>
+</body>
+
+</html>

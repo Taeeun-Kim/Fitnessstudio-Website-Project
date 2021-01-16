@@ -1,0 +1,43 @@
+= Protokoll Gruppe 12
+
+Treffen am 15.10.2019
+
+Ort:      HSZ/0405/U +
+Beginn:   17:30 Uhr +
+Ende:     18:10 Uhr
+
+__Schriftführer:__ René Dannroth
+
+*Nächstes Treffen:* +
+24.10.2019, 16:40 Uhr, APB
+
+__Teilnehmer:__
+//Tabellarisch oder Aufzählung, Kennzeichnung von Teilnehmern mit besonderer Rolle (z.B. Kunde)
+
+- Anita Fritzsche (Tutor)
+- Moritz Lumme
+- Emanuel Pilz
+- Duy Nhu
+- René Dannroth
+- Tom
+- Taeeun Kim
+
+== Bemerkungen
+
+=== Was wurde besprochen?
+- Einrichtung einer Telegram-Gruppe
+- Einigung auf zukünftige Gruppentreffen: __Donnerstags, 6. DS__
+- Vorläufig festgelegter Scrum Master: __Emanuel Pilz__
+- Kurze Vorstellung der Teammitglieder
+- Kurzer Einblick in die Aufgabenstellung
+- Beitreten der Mailingliste
+
+=== Was ist zu tun?
+- Git und Java Kenntnisse auffrischen
+- GitHub Accounts ggf. anlegen und deren Namen dem Tutor mitteilen
+- Guestbook-Prototypen anschauen und im Selbststudium modifizieren
+- Einrichten einer Discord-Gruppe
+- IDE festlegen: IntelliJ oder Eclipse
+- Aufgabenstellung lesen
+- Objektorientierte Analyse am Kunden bzw. Kundengespräch durchführen
+- Zeitmanagement (Time-Recording) auf GitHub pushen

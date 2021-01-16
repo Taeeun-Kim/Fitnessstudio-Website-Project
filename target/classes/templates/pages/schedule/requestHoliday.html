@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/schedule.css}"/>
+    <title>Urlaub &mdash; Fitnessstudio</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div class="left-column"></div>
+<main class="page-schedule_edit">
+    <a class="btn back" th:href="@{/schedule}">Zurück</a>
+    <form method="post" th:action="@{/schedule/holiday}" role="form" th:object="${holidayForm}">
+        <h2>Urlaub beantragen</h2>
+        <div class="row">
+            <input class="textfield" name="startDate" th:value="${#temporals.format(holiday.start, 'yyyy-MM-dd')}" type="date" required/>
+            <input class="textfield" name="endDate" th:value="${#temporals.format(holiday.end, 'yyyy-MM-dd')}" type="date" required/>
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
+        <div class="error" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></div>
+        <input class="textfield" type="hidden" name="employeeId" th:value="${employeeId}"/>
+        <div class="actions">
+            <input class="btn-raised" type="submit" value="Speichern">
+        </div>
+    </form>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

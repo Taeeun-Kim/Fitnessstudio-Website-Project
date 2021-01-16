@@ -1,0 +1,48 @@
+= Protokoll Gruppe 12
+
+Treffen am 05.12.2019
+
+Ort:      APB +
+Beginn:   16:40 Uhr +
+Ende:     17:10 Uhr
+
+__Schriftführer:__ René
+
+*Nächstes Treffen:* +
+12.12.2019, 16:40 Uhr, APB
+
+__Teilnehmer:__
+
+
+- Anita _(Tutor)_
+- Moritz Lumme
+- Duy Nhu
+- René Dannroth
+- Tom Felber
+- Taeeun Kim
+
+== Bemerkungen
+
+ - Merges weiter auf Master
+
+ - Musskreterien Anschaun und Selbständig abhacken
+
+== Retrospektive des letzten Sprints
+ - Nacholung Vorstellung des Shops
+
+ - Zwischenpräsentation lief gut
+
+
+== Aktueller Stand
+ - DataPackage ist "fertig" + ohne Test
+
+ - Restliche Packages sind aufgutemweg
+
+
+
+
+== Planung des nächsten Sprints
+
+- Fertigstellung Meilenstein mit MussKreterien
+
+- Danachfolgt das Crostesting

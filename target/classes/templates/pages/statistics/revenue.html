@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/statistics.css}"/>
+    <title>Statistik &mdash; Umsatz</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-statistics :: drawer-statistics"></div>
+<main class="page-statistics_revenue">
+    <div class="info" th:if="${records.empty}">Es gibt keine Einträge in dieser Kategorie</div>
+    <div class="record" th:each="order : ${records}">
+        <h4 th:text="${#temporals.format(order.dateCreated)}"></h4>
+        <h3 class="positive" th:text="|+ ${order.total}|"></h3>
+    </div>
+</main>
+<div class="right-column">
+
+</div>
+
+</body>
+
+</html>

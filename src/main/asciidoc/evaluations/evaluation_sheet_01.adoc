@@ -1,0 +1,44 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2019/20
+// Auch wenn der Bogen nicht anonymisiert ist, dürfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwähnen.
+
+**Von:** Moritz Lumme
+
+**Gruppe:** 12
+
+== Was habe ich gelernt?
+// Ausführung der positiven und negativen Erfahrungen, die im Softwarepraktikum gesammelt wurden
+* Erstellung einer Web-Applikation mit Spring, Salespoint und Thymeleaf (Analyse, Entwurf, Umsetzung)
+* (ausreichend) professioneller GIT-Workflow
+* Java-, HTML- und CSS-Kentnisse erweitert
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+// Kurze Beschreibung der Zusammenarbeit im Team. Was lief gut? Was war verbesserungswürdig? Was würden Sie das nächste Mal anders machen?
+* Wichtigkeit von guter Kommunikation innerhalb des Teams bemerkt (bzw. wie drastisch sich schlechte Kommunikation auf die Qualität der Zusammenarbeit auswirkt)
+* Teamdynamik war sehr gut, alle Teammitglieder freundlich und offen
+* Rollenverteilung im Team hat Arbeitsprozesse erleichtert und übergreifende Zusammenarbeit verbessert
+* Kommunikation könnte noch weiter verbessert werden
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+// Einschätzung der Arbeit mit den bereitgestellten und zusätzlich genutzten Frameworks. Was War gut? Was war verbesserungswürdig?
+* Einarbeitung in Salespoint/Spring/Thymeleaf zunächst mühsam, aber letztendlich sinnvoll
+* genutzte Frameworks waren nach Einarbeitung eine große Hilfe (größter Lerneffekt an der Stelle)
+* Vorlesungen von Oliver Drotbohm waren sehr hilfreich für Verständnis. 
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+// Möglichst mit Beschreibung, warum die Umsetzung des von Ihnen angebrachten Vorschlages nötig ist.
+* auf Wichtigkeit der Vorlesungen von Oliver Drotbohm in der OOSE könnte expiziter hingewiesen werden, weil dies untergegangen ist und sie sehr hilfreich sind
+* eigene Gruppenbildung könnte erlaubt werden, da so weniger Differenzen innerhalb des Teams entstehen und gute Kommunikation quasi schon vorrausgesetzt ist
+* keine Verbesserung, eher beibehalten: Lernraum war sehr hilfreich (bitte beibehalten)
+
+== Feedback für den Tutor
+// Fühlten Sie sich durch den vom Lehrstuhl bereitgestellten Tutor gut betreut? Was war positiv? Was war verbesserungswürdig?
+* sehr freundlich, hilfsbereit, verständnisvoll und kommunikationsoffen
+* für Fragen immer erreichbar
+* Informationen kamen immer pünktlich und verständlich
+* hat Spaß gemacht :)
+
+== Sonstiges und Anmerkungen
+// Welche Aspekte fanden in den oben genannten Punkten keine Erwähnung?
+* /

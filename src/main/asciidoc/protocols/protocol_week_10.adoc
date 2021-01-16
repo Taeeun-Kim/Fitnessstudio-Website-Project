@@ -1,0 +1,29 @@
+= Protokoll Gruppe 12
+
+Treffen am 19.12.2019
+
+Ort:      APB/E065 +
+Beginn:   16:40 Uhr +
+Ende:     17:05 Uhr
+
+__Schriftführer: Emanuel Pilz__
+
+*Nächstes Treffen:* +
+09.01.2019, 16:40 Uhr, APB/E065
+
+__Teilnehmer:__
+
+- Anita _(Tutor)_
+- Emanuel Pilz
+- Tom Felber
+
+== Was wurde besprochen?
+
+- Aktuellen Stand der Implementierung, insbesondere den fertigen Shop präsentiert.
+
+== Was ist zu tun?
+
+- Tests sehr dürftig und nichtsaussagend
+- Entwicklerdokumentation
+- Benutzerhandbuch ausführlicher gestalten
+- Muss-Kriterien für das Kundenkonto fehlen im Pflichtenheft

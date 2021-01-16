@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/customers.css}"/>
+    <title>Fitnessstudio &mdash; Mitglieder</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div class="left-column"></div>
+<main class="page-customers">
+    <div class="customer" th:each=" customer : ${customerList}">
+        <h3 class="customer_id" th:text="|#${customer.id}|"></h3>
+        <div class="customer_contract" th:text="${customer.contract.title}"></div>
+        <div class="customer_name" th:text="|${customer.userAccount.firstname} ${customer.userAccount.lastname}|"></div>
+        <div class="customer_disabled" th:if="${!customer.enabled}">Deaktiviert</div>
+        <div class="customer_email" th:text="${customer.userAccount.email}"></div>
+        <div class="customer_address" th:text="${customer.address}"></div>
+        <div class="actions">
+            <form th:action="@{/customers/{id}/toggle(id=${customer.id})}" method="post">
+                <input class="btn" type="submit" th:value="${customer.enabled} ? 'Deaktivieren' : 'Aktivieren'">
+            </form>
+            <a class="btn-raised" th:href="@{/customers/{id}(id=${customer.id})}">Bearbeiten</a>
+        </div>
+    </div>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+@import url("https://fonts.googleapis.com/css?family=Public+Sans:400,500,600,700|Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
+* {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%; }
+
+body {
+  background-color: #eceff1;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Public Sans', Helvetica, Arial, sans-serif; }
+
+a {
+  color: inherit;
+  text-decoration: unset; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: unset;
+  font-family: 'Poppins', sans-serif; }
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-style: italic; }
+
+h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: italic; }
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-style: italic; }
+
+hr {
+  border: none;
+  border-top: 0.125rem dashed #414759;
+  margin: 0 0 1rem 0; }
+
+form > *:not(:last-child) {
+  margin-bottom: 1rem; }
+
+input {
+  display: block;
+  border: unset;
+  font: inherit;
+  color: inherit;
+  background-color: inherit;
+  min-width: 0; }
+
+input[type="submit"] {
+  cursor: pointer; }
+
+form .actions {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+  form .actions > *:not(:last-child) {
+    margin-right: 2rem; }
+
+img.logo {
+  height: 3rem; }
+
+div.error {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: rgba(244, 40, 37, 0.08);
+  color: #f42825; }
+  div.error:not(:last-child) {
+    margin-bottom: 1rem; }
+
+div.info {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: rgba(33, 36, 45, 0.08);
+  color: #21242D; }
+  div.info:not(:last-child) {
+    margin-bottom: 1rem; }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  transition: all 100ms ease-in-out; }
+  .card[href]:hover {
+    box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer; }
+  .card .card_image {
+    flex-shrink: 0;
+    display: block;
+    width: 100%;
+    height: 12rem;
+    background-size: cover;
+    background-position: center; }
+  .card .card_content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    overflow-y: hidden; }
+    .card .card_content > * {
+      padding: 0 1rem; }
+    .card .card_content .card_description {
+      flex: 1;
+      overflow-y: auto; }
+    .card .card_content .card_price {
+      flex-shrink: 0;
+      font-weight: 700; }
+
+/*# sourceMappingURL=../../../../../../target/components/card.css.map */

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/shop/coupon.css}"/>
+    <title>Coupons &mdash; Fitnessstudio</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div th:classappend="left-column" th:replace="fragments/drawer-shop :: drawer-shop"></div>
+<main class="page-shop_coupon">
+    <h2>Coupon</h2>
+    <form class="coupon" th:action="@{/shop/coupon}" method="post" th:object="${orderForm}">
+        <input name="customer" class="textfield" type="number" min="0" placeholder="Kundennummer" required th:field="*{customer}">
+        <div class="error" th:if="${#fields.hasErrors('customer')}" th:errors="*{customer}"></div>
+        <input name="amount" class="textfield" type="number" min="0" placeholder="Wert" required>
+        <div class="actions">
+            <input type="submit" class="btn-raised" value="Bestellen">
+        </div>
+    </form>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

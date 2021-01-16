@@ -1,0 +1,57 @@
+@import "../main";
+
+.textfield {
+    width: 100%;
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.125rem;
+
+    background-color: rgba(black, 0.06);
+    color: $background-color-text;
+
+    &:not(:disabled):hover, &:not(:disabled):focus {
+        background-color: rgba(black, 0.1);
+    }
+
+    &::placeholder {
+        color: $background-color-text-inactive;
+    }
+
+    &:disabled {
+        color: $background-color-text-inactive;
+        font-weight: 700;
+    }
+}
+
+@mixin dark-textfield {
+    background-color: rgba(white, 0.1);
+    color: $primary-color-text;
+
+    &:hover, &:focus {
+        background-color: lighten($primary-color, 20);
+    }
+
+    &::placeholder {
+        color: $primary-color-text-inactive;
+    }
+}
+
+.dark.textfield {
+    @include dark-textfield;
+}
+
+.primary.textfield {
+    @include dark-textfield;
+    background-color: lighten($primary-color, 15);
+}
+
+.primary-variant.textfield {
+    @include dark-textfield;
+    background-color: lighten($primary-variant-color, 15);
+
+    &:hover, &:focus {
+        background-color: lighten($primary-variant-color, 20);
+    }
+}

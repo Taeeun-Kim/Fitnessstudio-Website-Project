@@ -1,0 +1,56 @@
+= Cross-Testing Feedback
+
+__Durchführende Gruppe:__ 12
+__Anwendung von Gruppe:__ 16
+
+== Getestetes System
+
+Dieser Testreport beschränkt sich auf folgende Bereiche:
+- Adminbereich
+- Mitarbeiter
+- Mitgliederliste
+- Registrierung/Login
+
+== Fehler-Report
+
+|===
+|Pfad |Parameter |Beschreibung |Rückgabe
+| `/admin/members` | &mdash; | "Mitglieder Nummer" und "Mitglied seit" sind vertauscht. | 200 (OK)
+| `/admin/attendanceStatistic` | &mdash; | Statistiken über laufende Kosten fehlen oder sind nicht auffindbar. | 200 (OK)
+| `/admin/authorizeMember` | &mdash; | Lehnt man eine Freischaltungsanfrage ab, werden alle Anfragen, die den selben Vertrag asugewählt haben, abgelehnt und der Vertrag wird gelöscht. | 200 (OK)
+| `/member/home` & `/member/training` | &mdash; | Ist man als Member eingeloggt, wird man wieder auf die Login Seite weitergeleitet, wenn man versucht die Bereiche "Benutzerkonto" oder "Trainings" anzuwählen. | 200 (OK)
+| `/staff/edit/{id}` | Mitarbeiter ID | Die Änderung der E-Mail-Addresse wird nicht übernommen | 200 (OK)
+|===
+
+=== Optionale Fehler
+Folgende Fehler treten nur auf, wenn absichtlich oder ausversehen unrealistische Werte angegeben werden.
+(z.B. negative Preise, usw.)
+
+|===
+
+|Pfad |Parameter |Beschreibung |Rückgabe
+| `/admin/contract/detail/{id}` | Vertrags ID | Für Preis und Laufzeit können negative Werte angegeben werden. | 200 (OK)
+|===
+
+== Sonstiges
+
+Die Trainings konnten aufgrund eines anderen Fehlers nicht getestet werden. (Siehe Pfad `/member/training` im Fehler-Report)
+
+=== Optik der Anwendung
+
+=== Fehlende Features
+
+Anmerkung: Die Muss-Kriterien eurer Anwendung sind uns unbekannt, folgende Punkte können für eure Aufgabe irrelevant sein.
+
+- Statistik über laufende Kosten
+- Entfernen von nicht verwendeten Verträgen
+
+=== Interaktion mit der Anwendung (Usability)
+
+
+== Verbesserungsvorschläge
+
+- HTML Zahlen Inputs bieten `min` und `max` Felder an. Damit kann man mühelos das Problem mit negativen Werten lösen.
+- Fehlermeldung beim Login anzeigen, wenn sich ein Kunde versucht einzuloggen, der noch nicht freigeschaltet ist.
+
+

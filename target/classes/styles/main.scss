@@ -1,0 +1,136 @@
+@import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
+@import url('https://fonts.googleapis.com/css?family=Public+Sans:400,500,600,700|Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
+// Theme
+
+// Swatches (https://material.io/design/color/the-color-system.html#color-theme-creation)
+$primary-color: #21242D;
+$primary-variant-color: #0d0e12;
+$secondary-color: #ff3d00;
+
+$background-color: #eceff1;
+$surface-color: #ffffff;
+$error-color: #f42825;
+
+// Text (https://material.io/design/color/text-legibility.html#text-backgrounds)
+$primary-color-text: rgba(#ffffff, 0.87);
+$primary-color-text-inactive: rgba(#ffffff, 0.6);
+$secondary-color-text: rgba(#000000, 0.87);
+$secondary-color-text-inactive: rgba(#000000, 0.6);
+$background-color-text: rgba(#000000, 0.87);
+$background-color-text-inactive: rgba(#000000, 0.6);
+
+// Dark Theme
+$secondary-color-dark: #ffffff;
+
+$shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+$shadow-dark: 0 0.125rem 0.5rem 0 black;
+
+$margin: 4rem;
+$radius: 100vh;
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: $background-color;
+    color: $background-color-text;
+    font-family: 'Public Sans', Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: unset;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: unset;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-style: italic;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    font-style: italic;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    font-style: italic;
+}
+
+hr {
+    border: none;
+    border-top: 0.125rem dashed lighten($primary-color, 15);
+    margin: 0 0 1rem 0;
+}
+
+form > *:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+input {
+    display: block;
+    border: unset;
+    font: inherit;
+    color: inherit;
+    background-color: inherit;
+    min-width: 0;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+form .actions {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    > *:not(:last-child) {
+        margin-right: 2rem;
+    }
+}
+
+img.logo {
+    height: 3rem;
+}
+
+// Errorbox
+div.error {
+    padding: 1rem;
+    border-radius: 0.25rem;
+
+    background-color: rgba($error-color, 0.08);
+    color: $error-color;
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}
+
+// Infobox
+div.info {
+    padding: 1rem;
+    border-radius: 0.25rem;
+
+    background-color: rgba($primary-color, 0.08);
+    color: $primary-color;
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}

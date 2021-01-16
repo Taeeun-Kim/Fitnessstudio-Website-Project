@@ -1,0 +1,122 @@
+@import "../main";
+
+@mixin btn-shared {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn {
+    @include btn-shared;
+
+    color: $background-color-text-inactive;
+
+    .icon {
+        fill: $background-color-text-inactive;
+    }
+
+    &:hover {
+        color: $background-color-text;
+
+        .icon {
+            fill: $background-color-text;
+        }
+    }
+
+    &.error:hover {
+        color: $error-color;
+    }
+}
+
+.btn-raised {
+    @include btn-shared;
+
+    padding: 0.5rem 1rem;
+    box-shadow: $shadow;
+    border-radius: 100vh;
+
+    background-color: $secondary-color;
+    color: $secondary-color-text;
+
+    &.icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .icon {
+        fill: $secondary-color-text;
+    }
+
+    &:hover {
+        background-color: lighten($secondary-color, 10);
+    }
+
+    &[disabled] {
+        box-shadow: none;
+        color: $background-color-text-inactive;
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+}
+
+.btn-inline {
+    text-decoration: underline;
+
+    color: $background-color-text-inactive;
+
+    .icon {
+        fill: $background-color-text-inactive;
+    }
+
+    &:hover {
+        color: $background-color-text;
+
+        .icon {
+            fill: $background-color-text;
+        }
+    }
+
+    &.error:hover {
+        color: $error-color;
+    }
+}
+
+.dark { // Button on dark background
+    &.btn, &.btn-inline {
+        color: $primary-color-text-inactive;
+
+        .icon {
+            fill: $primary-color-text-inactive;
+        }
+
+        &:hover {
+            color: $primary-color-text;
+
+            .icon {
+                fill: $primary-color-text;
+            }
+        }
+
+        &.error:hover {
+            color: $error-color;
+
+            .icon {
+                fill: $error-color;
+            }
+        }
+    }
+
+    &.btn-raised {
+        background-color: $secondary-color-dark;
+        box-shadow: $shadow-dark;
+
+        &:hover {
+            background-color: darken($secondary-color-dark, 15);
+        }
+    }
+}

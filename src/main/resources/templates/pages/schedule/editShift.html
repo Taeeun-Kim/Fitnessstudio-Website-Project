@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/schedule.css}"/>
+    <title>Schicht &mdash; Fitnessstudio</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div class="left-column"></div>
+<main class="page-schedule_edit">
+    <a class="btn back" th:href="@{/schedule}">Zurück</a>
+    <form method="post" th:action="@{/schedule/shift/{id}(id=${shift.id})}" role="form" th:object="${shiftForm}">
+        <h2>Schicht bearbeiten</h2>
+        <h3>Arbeitszeit</h3>
+        <input class="textfield" name="startDate" th:value="${shift.start.toLocalDate()}" th:field="*{startDate}" type="date" required/>
+        <div class="error" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>
+        <div class="row">
+            <input class="textfield" name="startTime" th:value="${#temporals.format(shift.start, 'HH:mm')}" th:field="*{startTime}" type="time" required />
+            <input class="textfield" name="endTime" th:value="${#temporals.format(shift.end, 'HH:mm')}" th:field="*{endTime}" type="time" required />
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+        <div class="error" th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}"></div>
+        <input type="hidden" name="employeeId" th:value="${employeeId}"/>
+        <h3>Bereich</h3>
+        <select class="textfield" name="department" th:field="*{department}">
+            <option th:each="department : ${departmentList}" th:text="${department.localization}" th:value="${department}" th:selected="${department.equals(shift.department)}">Bereich</option>
+        </select>
+        <div class="error" th:if="${#fields.hasErrors('department')}" th:errors="*{department}"></div>
+        <div class="actions">
+            <input class="btn" name="delete" type="submit" th:value="Löschen">
+            <input class="btn-raised" name="save" type="submit" th:value="Speichern">
+        </div>
+    </form>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+= Persönliches Feedback eines Teammitgliedes des Softwarepraktikums 2019/20
+// Auch wenn der Bogen nicht anonymisiert ist, dürfen Sie gern Ihre Meinung offen kundtun.
+// Sowohl positive als auch negative Anmerkungen werden gern gesehen und zur stetigen Verbesserung genutzt.
+// Versuchen Sie in dieser Auswertung also stets sowohl Positives wie auch Negatives zu erwähnen.
+
+**Von:** Tom Felber
+
+**Gruppe:** 12
+
+== Was habe ich gelernt?
+// Ausführung der positiven und negativen Erfahrungen, die im Softwarepraktikum gesammelt wurden
+* Arbeit mit Frameworks
+* Erstellung von webbasierten Anwendungen
+* Verbesserte Kenntisse in Java und HTML
+* Besserer Umgang mit Git
+
+== Welche Erfahrungen habe ich mit der Zusammenarbeit im Team gemacht?
+// Kurze Beschreibung der Zusammenarbeit im Team. Was lief gut? Was war verbesserungswürdig? Was würden Sie das nächste Mal anders machen?
+* Die gleichmäßige Aufgabenteilung ist nicht so einfach
+* Der Wichtigkeit von guter Kommunikation im Team klargeworden
+* Angenehme Arbeitsatmosphäre, alle Mitglieder waren freundlich und offen
+
+== Welche Erfahrungen habe ich bei der Wiederverwendung von Bibliotheken/Frameworks (insbesondere SalesPoint) gemacht?
+// Einschätzung der Arbeit mit den bereitgestellten und zusätzlich genutzten Frameworks. Was War gut? Was war verbesserungswürdig?
+* Es geht nicht immer alles so, wie man es will
+* Dennoch starke Erleichterung, da die Frameworks einiges an Arbeit abnehmen
+* Aufwändige Einarbeitung, aber definitiv lohnend
+
+== Welche Vorschläge zur weiteren Verbesserung des Softwarepraktikums gibt es?
+// Möglichst mit Beschreibung, warum die Umsetzung des von Ihnen angebrachten Vorschlages nötig ist.
+* Erlauben von eigenen Gruppen, da somit die Unterschiede innerhalb der Gruppen geringer ist.
+    Wenn das nicht möglich ist, dann auf bessere Verteilung der Mitglieder abhängig von ihren
+    Noten achten (es sollte keine Gruppen mit ausschließlich erfahrenen oder unerfahrenen Studenten geben)
+* Die Nützlichkeit von Oliver Drotbohms Vorlesungen sowie des Lernraums mehr unterstreichen
+
+== Feedback für den Tutor
+// Fühlten Sie sich durch den vom Lehrstuhl bereitgestellten Tutor gut betreut? Was war positiv? Was war verbesserungswürdig?
+* sehr freundliches Auftreten, offen und hilfsbereit
+* zeigt Engagement und motiviert somit zum Weitermachen
+* hält sich nicht an Kleinigkeiten auf, behält das Wichtige im Blick
+
+== Sonstiges und Anmerkungen
+// Welche Aspekte fanden in den oben genannten Punkten keine Erwähnung?

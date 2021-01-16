@@ -1,0 +1,37 @@
+@import "../../components/drawer";
+@import "../../components/textfield";
+@import "../../fragments/navigation";
+@import "../../layouts/dashboard";
+
+.page-admin-discounts {
+    padding-right: $margin;
+
+    .product {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+
+        background-color: $surface-color;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        > *:not(:last-child) {
+            margin: 0 1rem 0 0;
+            white-space: nowrap;
+        }
+
+        .product_name, .product_uvp {
+            flex: 1;
+        }
+
+        .product_discount {
+            max-width: 8rem;
+        }
+
+        .product_currency {
+            width: 4rem;
+        }
+    }
+}

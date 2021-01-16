@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/index.css}"/>
+    <title>Fitnessstudio</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation-index :: navigation-index"></header>
+
+<div class="filler"></div>
+
+<main class="form-register" th:insert="fragments/register :: register('primary-variant')"></main>
+
+<div class="social-media">
+    <a href="https://youtu.be/oHg5SJYRHA0"><img src="assets/icons/facebook.svg" alt="facebook"></a>
+    <a href="https://youtu.be/_V2sBURgUBI"><img src="assets/icons/instagram.svg" alt="instagram"></a>
+    <a href="https://youtu.be/IRP-2y43BLo"><img src="assets/icons/twitter.svg" alt="twitter"></a>
+</div>
+
+<div class="background"></div>
+
+</body>
+
+</html>

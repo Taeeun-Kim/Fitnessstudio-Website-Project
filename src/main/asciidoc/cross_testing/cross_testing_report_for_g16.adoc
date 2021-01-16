@@ -1,0 +1,22 @@
+= Cross-Testing Feedback
+
+_Durchführende Gruppe:_ 12
+_Anwendung von Gruppe:_ 16
+
+== Getestetes System
+Welche Aufgabe/Problemstellung löst die Anwendung.
+
+== Fehler-Report
+|===
+
+|Pfad |Parameter |Beschreibung |Rückgabe
+| … | … | … | … |
+|===
+
+== Sonstiges
+* Optik der Anwendung
+* Fehlende Features
+* Interaktion mit der Anwendung (Usability)
+
+== Verbesserungsvorschläge
+* Was kann noch weiter verbessert werden?

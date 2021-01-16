@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/admin/index.css}"/>
+    <title>Einstellungen &mdash; Allgemein</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-settings :: drawer-settings"></div>
+<main class="page-admin">
+    <form class="form-properties" th:action="@{/admin}" method="post" th:object="${form}">
+        <h2>Fitnessstudio</h2>
+        <input id="name" name="name" class="textfield" placeholder="Name" th:field="*{name}">
+
+        <h2>Öffnungszeiten</h2>
+        <p>
+            Ist eine der beiden Uhrzeiten leer, wird der Tag als Schließtag interpretiert.
+        </p>
+        <div class="hours">
+            <div></div>
+            <span class="hours-header">Von</span>
+            <span class="hours-header">Bis</span>
+            <span class="weekday">Montag</span>
+            <input type="time" name="start" class="textfield" th:field="*{starts[0]}">
+            <input type="time" name="end" class="textfield" th:field="*{ends[0]}">
+            <span class="weekday">Dienstag</span>
+            <input type="time" name="start" class="textfield" th:field="*{starts[1]}">
+            <input type="time" name="end" class="textfield" th:field="*{ends[1]}">
+            <span class="weekday">Mittwoch</span>
+            <input type="time" name="start" class="textfield" th:field="*{starts[2]}">
+            <input type="time" name="end" class="textfield" th:field="*{ends[2]}">
+            <span class="weekday">Donnerstag</span>
+            <input type="time" name="start" class="textfield" th:field="*{starts[3]}">
+            <input type="time" name="end" class="textfield" th:field="*{ends[3]}">
+            <span class="weekday">Freitag</span>
+            <input type="time" name="start" class="textfield" th:field="*{starts[4]}">
+            <input type="time" name="end" class="textfield" th:field="*{ends[4]}">
+            <span class="weekday">Samstag</span>
+            <input type="time" name="start" class="textfield" th:field="*{starts[5]}">
+            <input type="time" name="end" class="textfield" th:field="*{ends[5]}">
+            <span class="weekday">Sonntag</span>
+            <input type="time" name="start" class="textfield" th:field="*{starts[6]}">
+            <input type="time" name="end" class="textfield" th:field="*{ends[6]}">
+        </div>
+        <h2>Anwerbungsprämie</h2>
+        <p>
+            Folgender Betrag wird einem Mitglied gutgeschrieben, wenn er einen neuen Kunden anwirbt.
+        </p>
+        <input type="number" step="0.01" min="0" name="bounty" class="textfield" placeholder="Gutschrift"  th:field="*{bounty}">
+
+        <div class="actions">
+            <a th:href="@{/admin}" class="btn">Verwerfen</a>
+            <input type="submit" value="Speichern" class="btn-raised">
+        </div>
+    </form>
+</main>
+<div class="right-column">
+
+</div>
+
+</body>
+
+</html>

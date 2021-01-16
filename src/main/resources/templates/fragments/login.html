@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<body>
+
+<form class="fragment-login" th:action="@{/login}" method="post" th:fragment="login(color)">
+    <h2>Login</h2>
+    <div class="error" th:if="${param.error}">E-Mail oder Passwort falsch</div>
+    <input name="username" type="email" class="textfield" th:classappend="${color}" placeholder="E-Mail" required>
+    <input name="password" type="password" class="textfield" th:classappend="${color}" placeholder="Passwort" required>
+    <div class="actions">
+        <input type="submit" value="Login" class="btn-raised dark" th:classappend="${color}">
+    </div>
+</form>
+
+</body>
+
+</html>

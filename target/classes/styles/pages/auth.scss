@@ -1,0 +1,39 @@
+@import "../main";
+@import "../fragments/register";
+@import "../fragments/login";
+
+html, body {
+    height: 100%;
+    background-color: $primary-color;
+    color: $primary-color-text;
+}
+
+.auth {
+    width: 32rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    > *:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    .fragment-login, .fragment-register {
+        margin-top: 1rem;
+        border: 2px solid lighten($primary-color, 20);
+        width: 100%;
+
+        h2 {
+            background-color: $primary-color;
+            padding: 0 1rem;
+            margin-left: -1rem;
+        }
+    }
+
+    .auth-toggle {
+        text-align: center;
+    }
+}

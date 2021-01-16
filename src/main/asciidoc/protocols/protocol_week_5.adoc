@@ -1,0 +1,52 @@
+= Protokoll Gruppe 12
+
+Treffen am 14.11.2019
+
+Ort:      APB/E065 +
+Beginn:   16:40 Uhr +
+Ende:     17:20 Uhr
+
+_Schriftführer: Emanuel Pilz_
+
+*Nächstes Treffen:* +
+21.11.2019, 16:40 Uhr, APB/Foyer
+
+__Teilnehmer:__
+
+- Anita _(Tutor)_
+- Moritz Lumme
+- Emanuel Pilz
+- Duy Nhu
+- René Dannroth
+- Tom Felber
+- Taeeun Kim
+
+== Was wurde besprochen?
+
+- Scrum-Master darf auch mal durchgewechselt werden
+- Jenkins: Alle Branches werden auf Jenkins getestet, regelmäßiges Reinschauen ist empfohlen +
+_(Standardtest kann wegen AsciiDocs fehlschlagen, in diesem Falle kann der Test entfernt werden)_
+
+=== Zwischen- und Endpräsentation
+
+Findet gemeinsam mit der anderen Gruppe statt.
+Gruppen stellen einander die Projekte quasi einander vor.
+
+*Dauer:* 30 min (pro Gruppe)
+
+- 10 min Vorstellung des aktuellen Stands
+- 10 min Entwicklungsprozess (Probleme, Hürden, Fehler)
+- 10 min Diskussions- und Fragerunde
+
+Prinzipiell: Entwicklerdokumentation in Vortragsform
+
+
+== Aktueller Stand
+
+- Entwurfsklassendiagramm fast fertig
+- Testplan bis auf konkrete Testfälle fertig
+
+== Was ist zu tun?
+
+- Freie Termine im https://dudle.inf.tu-dresden.de/LWCiPYBLcA/[Dudle] für die Zwischenpräsentationen eintragen.
+- Nach dem nächsten Meilenstein kann mit der richtigen Implementierung begonnen werden.

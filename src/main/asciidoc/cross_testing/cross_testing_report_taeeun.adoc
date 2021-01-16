@@ -1,0 +1,32 @@
+= Cross-Testing Feedback
+
+__Durchführende Gruppe:__ 12
+
+__Anwendung von Gruppe:__ 16
+
+== Getestetes System
+
+Theke, Verwaltung
+
+== Fehler-Report
+|===
+|Pfad |Parameter |Beschreibung |Rückgabe
+
+|Theke Verwaltung -> Lager |x|Kein Zugriff auf Lager als Boss und Mitarbeiter|Error 500 Seite|
+Cart -> Bezahlen -> Warenkorb abschließen|x|Mit Guthaben bezahlen ist nicht möglich|Error 403 Seite
+|===
+
+== Sonstiges
+* Optik der Anwendung
+1.  Simple und Dunkelmodus war gut
+* Fehlende Features
+1.  Lager Seite
+2.  Mit dem Dunkelmodus gibt es noch übrige weiße Teile der Seite
+* Interaktion mit der Anwendung (Usability)
+1.  Simple, aber manche Funktionen war nicht auf der Seite, auf der ich es erwartet habe.
+
+== Verbesserungsvorschläge
+* Was kann noch weiter verbessert werden?
+1.  Auf der Seite "Nachbestelliste" kann der Artikel nicht nachgefüllt werden, daher wäre es besser, wenn man auf dieser Seite direkt den Artikel nachfüllen kann.
+2.  Auf der Bestellungenseite (Bestellseite) kann nicht geprüft werden, welchen und wieviele Artikel gekauft wurden. Nur der Betrag ist ersichtlich.
+3.  Ein fertiger Dunkelmodus wäre gut, z.B. Tabelle, Nav usw.

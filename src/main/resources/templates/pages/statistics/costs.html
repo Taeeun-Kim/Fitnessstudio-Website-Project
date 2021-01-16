@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/statistics.css}"/>
+    <title>Statistik &mdash; Kosten</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-statistics :: drawer-statistics"></div>
+<main class="page-statistics_costs">
+    <div class="info" th:if="${records.empty}">Es gibt keine Einträge in dieser Kategorie</div>
+    <div class="records">
+        <div class="record" th:each="record : ${records}">
+            <h4 th:text="${#temporals.format(record.timestamp)}"></h4>
+            <div>
+                <span class="title">Produkt: </span>
+                <span th:text="${record.product}"></span>
+            </div>
+            <div>
+                <span class="title">Menge: </span>
+                <span th:text="${record.amount}"></span>
+            </div>
+            <h3 class="negative" th:text="|- ${record.price}|"></h3>
+        </div>
+    </div>
+</main>
+<div class="right-column">
+
+</div>
+
+</body>
+
+</html>

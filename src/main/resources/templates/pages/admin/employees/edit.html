@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/admin/employees.css}"/>
+    <title>Einstellungen &mdash; Mitarbeiter</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-settings :: drawer-settings"></div>
+<main class="page-admin-employees_edit">
+    <a class="btn back" th:href="@{/admin/employees}">Zurück</a>
+    <form class="employee" method="post" role="form" th:action="@{/admin/employees/{id}(id=${id})}" th:object="${employeeForm}">
+        <h2 th:text="|*{firstname} *{lastname}|"></h2>
+        <h3>Nutzerdaten</h3>
+        <input class="textfield" name="email" type="text" th:field="*{email}" placeholder="E-Mail" required/>
+        <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <div class="row">
+            <input class="textfield form-firstname" name="firstname" type="text" th:field="*{firstname}" placeholder="Vorname" required/>
+            <input class="textfield form-lastname" name="lastname" type="text" th:field="*{lastname}" placeholder="Nachname" required/>
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></div>
+        <div class="error" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
+        <h3>Adresse</h3>
+        <div class="row">
+            <input class="textfield form-street" name="street" th:field="*{street}" placeholder="Straße" required>
+            <input class="textfield form-number" name="number" th:field="*{number}" placeholder="Nr." required>
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></div>
+        <div class="error" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></div>
+        <div class="row">
+            <input class="textfield form-code" name="code" type="number" th:field="*{code}" placeholder="PLZ" min="0" required>
+            <input class="textfield form-location" name="location" th:field="*{location}" placeholder="Ort" required>
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></div>
+        <div class="error" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></div>
+        <h3>Gehalt</h3>
+        <div class="row">
+            <input class="textfield form-salary" name="salary" type="number" min="0" step="0.01" th:field="*{salary}" placeholder="Gehalt" required/>
+            <input class="textfield form-currency" name="currency" value="EUR" disabled readonly>
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></div>
+        <div class="actions">
+            <a class="btn" href="">Verwerfen</a>
+            <input class="btn-raised" type="submit" value ="Submit"/>
+        </div>
+    </form>
+</main>
+<div class="right-column">
+
+</div>
+
+</body>
+
+</html>

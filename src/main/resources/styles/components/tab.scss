@@ -1,0 +1,66 @@
+@import "../main";
+@import "button";
+
+.tab {
+    @include btn-shared;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: $background-color-text-inactive;
+
+    &:hover, &.selected {
+        color: $background-color-text;
+    }
+
+    .tab_content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        margin-top: 0.25rem;
+    }
+
+    .tab_icon {
+        fill: $background-color-text-inactive;
+    }
+
+    &:hover .tab_icon, &.selected .tab_icon {
+        fill: $background-color-text;
+    }
+
+    .tab_selector {
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        height: 0.25rem;
+    }
+
+    &:hover .tab_selector {
+        background-color: $background-color-text;
+    }
+
+    &.selected .tab_selector {
+        background-color: $secondary-color;
+    }
+}
+
+.dark.tab {
+    color: $primary-color-text-inactive;
+
+    .tab_icon {
+        fill: $primary-color-text-inactive;
+    }
+
+    &:hover, &.selected {
+        color: $primary-color-text;
+    }
+
+    &:hover .tab_icon, &.selected .tab_icon {
+        fill: $primary-color-text;
+    }
+
+    &:hover .tab_selector {
+        background-color: $primary-color-text;
+    }
+}

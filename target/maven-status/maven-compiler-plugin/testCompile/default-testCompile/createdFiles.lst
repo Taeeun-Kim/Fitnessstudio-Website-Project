@@ -1,0 +1,9 @@
+fitnessstudio/properties/PropertiesControllerIntegrationTests.class
+fitnessstudio/statistics/StatisticsControllerIntegrationTests.class
+fitnessstudio/contracts/ContractTests.class
+fitnessstudio/statistics/record/CustomerActivityTests.class
+fitnessstudio/contracts/ContractControllerTests.class
+fitnessstudio/statistics/record/RestockActivityTests.class
+fitnessstudio/schedule/ScheduleControllerTests.class
+fitnessstudio/contracts/ContractManagerTests.class
+fitnessstudio/schedule/ScheduleTests.class

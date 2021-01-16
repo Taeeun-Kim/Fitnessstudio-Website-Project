@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<body>
+
+<form class="fragment-register" th:action="@{/register}" method="post" th:fragment="register(color)" th:object="${customerForm}">
+    <h2>Mitglied werden</h2>
+    <input name="email" type="email" class="textfield" th:classappend="${color}" placeholder="E-Mail" th:field="*{email}" required>
+    <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    <input name="password" type="password" class="textfield" th:classappend="${color}" placeholder="Passwort" th:field="*{password}" required>
+    <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{password}"></div>
+    <input name="repeatPassword" type="password" class="textfield" th:classappend="${color}" placeholder="Passwort wiederholen" th:field="*{repeatPassword}" required>
+    <div class="error" th:if="${#fields.hasErrors('repeatPassword')}" th:errors="*{repeatPassword}"></div>
+    <hr>
+    <div class="row">
+        <input name="firstname" class="textfield form-firstname" th:classappend="${color}" placeholder="Vorname" th:field="*{firstname}" required>
+        <div class="error" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></div>
+        <input name="lastname" class="textfield form-lastname" th:classappend="${color}" placeholder="Nachname" th:field="*{lastname}" required>
+        <div class="error" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
+    </div>
+    <div class="row">
+        <input name="street" class="textfield form-street" th:classappend="${color}" placeholder="Straße" th:field="*{street}" required>
+        <input name="number" class="textfield form-number" th:classappend="${color}" placeholder="Nr." th:field="*{number}" required>
+    </div>
+    <div class="error" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></div>
+    <div class="error" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></div>
+    <div class="row">
+        <input name="code" type="number" class="textfield form-code" th:classappend="${color}" placeholder="PLZ" min="0" th:field="*{code}" required>
+        <input name="location" class="textfield form-location" th:classappend="${color}" placeholder="Ort" th:field="*{location}" required>
+    </div>
+    <div class="error" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></div>
+    <div class="error" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></div>
+    <hr>
+    <select name="contractId" class="textfield primary-variant" th:field="*{contractId}">
+        <option th:each="contract : ${contracts}" th:value="${contract.getId()}" th:text="${contract.title}"></option>
+    </select>
+    <div class="error" th:if="${#fields.hasErrors('contractId')}" th:errors="*{contractId}"></div>
+    <input name="promo" class="textfield" th:classappend="${color}" placeholder="Empfehlung (Kundennummer)" th:field="*{promo}">
+    <div class="error" th:if="${#fields.hasErrors('promo')}" th:errors="*{promo}"></div>
+    <div class="actions">
+        <input type="submit" value="Registrieren" class="btn-raised dark">
+    </div>
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+@import "../main";
+@import "../components/button";
+@import "../components/tab";
+
+.fragment-navigation {
+    display: flex;
+    height: 4rem;
+    padding: 0 $margin;
+    background-color: $primary-color;
+
+    > div {
+        display: flex;
+        align-items: center;
+        background-color: $primary-color;
+
+        > a:not(:last-child) {
+            margin-right: $margin;
+        }
+    }
+
+    .fragment-navigation_left {
+        padding-left: $margin;
+    }
+
+    .fragment-navigation_main {
+        flex: 1;
+    }
+
+    .fragment-navigation_right {
+        padding-right: $margin;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    img.logo {
+        height: 2rem;
+        margin-right: 2*$margin;
+    }
+}

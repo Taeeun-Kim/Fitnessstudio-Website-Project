@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" th:href="@{css/pages/auth.css}">
+    <title>Authenticate</title>
+</head>
+
+<body>
+
+<div class="auth">
+    <a th:href="@{/}">
+        <img class="logo" th:src="@{/assets/logo.svg}" alt="logo">
+    </a>
+    <th:block th:if="${#httpServletRequest.requestURI == '/login'}">
+        <div th:replace="fragments/login :: login('primary')"></div>
+    </th:block>
+    <th:block th:if="${#httpServletRequest.requestURI == '/register'}">
+        <div th:replace="fragments/register :: register('primary')"></div>
+    </th:block>
+    <div class="auth-toggle">
+        <th:block th:if="${#httpServletRequest.requestURI == '/login'}">
+            Noch kein Mitglied? &mdash; <a class="btn-inline dark" th:href="@{/register}">Mitglied werden</a>
+        </th:block>
+        <th:block th:if="${#httpServletRequest.requestURI == '/register'}">
+            Bereits Mitglied? &mdash; <a class="btn-inline dark" th:href="@{/login}">Login</a>
+        </th:block>
+    </div>
+</div>
+</body>
+
+</html>
+

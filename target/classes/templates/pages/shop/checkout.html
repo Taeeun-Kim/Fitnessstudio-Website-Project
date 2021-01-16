@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/shop/cart.css}"/>
+    <title>Bezahlung &mdash; Fitnessstudio</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div th:classappend="left-column" th:replace="fragments/drawer-shop :: drawer-shop"></div>
+<main class="page-shop_checkout">
+    <h2>Bestellung</h2>
+    <div class="items">
+        <div class="item" th:each="item : ${order.orderLines}">
+            <a class="item_product" th:href="@{/shop/product/{id}(id=${item.productIdentifier})}">
+                <h3 th:text="${item.productName}"></h3>
+            </a>
+            <div class="item_amount">
+                <span class="title">Anzahl: </span>
+                <span th:text="${item.quantity}"></span>
+            </div>
+            <span class="item_price" th:text="${item.price}"></span>
+        </div>
+    </div>
+    <div class="total">
+        <span class="title">Gesamt</span>
+        <h3 th:text="${order.total}"></h3>
+    </div>
+    <h2>Bezahlung</h2>
+    <div class="payment">
+        <h3>Bar</h3>
+        <form class="cash panel" th:action="@{/shop/checkout/{id}/cash(id=${order.id})}" method="post">
+            <p>Diese Option auswählen, wenn der Kunde bar bezahlt hat.</p>
+            <div class="actions">
+                <input type="submit" class="btn-raised" value="Kaufen">
+            </div>
+        </form>
+        <h3>Kundenkonto</h3>
+        <form class="funds panel" th:action="@{/shop/checkout/{order}/funds(order=${order.id})}" method="post">
+            <p>Betrag direkt vom Kundenkonto abbuchen.</p>
+            <h4>Verfügbar: </h4>
+            <div th:text="${customer.balance}"></div>
+            <div class="actions">
+                <input type="submit" class="btn-raised" value="Kaufen" th:disabled="${customer.balance.isLessThan(order.totalPrice)}">
+            </div>
+        </form>
+    </div>
+    <h2>Stornieren</h2>
+    <form class="cancel" th:action="@{/shop/checkout/{id}(id=${order.id})}" method="post">
+        <span>Möchten Sie die Bestellung abbrechen? Dann können Sie hier die Bestellung stornieren. &mdash; </span>
+        <input type="submit" class="btn error" name="cancel" value="Stornieren">
+    </form>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

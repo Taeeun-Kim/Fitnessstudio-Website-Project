@@ -1,0 +1,57 @@
+= Protokoll Gruppe 12
+
+Treffen am 07.11.2019
+
+Ort:      APB/E069 +
+Beginn:   16:40 Uhr +
+Ende:     17:35 Uhr
+
+_Schriftführer: Emanuel Pilz_
+
+*Nächstes Treffen:* +
+14.11.2019, 16:40 Uhr, APB/Foyer
+
+_Teilnehmer:_
+
+- Anita _(Tutor)_
+- Moritz Lumme
+- Emanuel Pilz
+- Duy Nhu
+- Tom Felber
+- Taeeun Kim
+
+== Was wurde besprochen?
+
+- VideoShop-Prototypen vorgestellt
+
+=== Pflichtenheft
+
+- Englisch und Deutsch im GUI-Prototyp gemischt
+- Qualitätsziele (Nicht-Funktionale Anforderungen) durch ISO 25000 Standard erweitern
+
+=== Continuous Integration
+
+*Läuft über https://jenkins.io/[Jenkins] und https://www.sonarqube.org/[SonarQube]*
+
+Jedem _Push_ auf den master-Branch wird von Jenkins und SonarQube analysiert.
+Dabei werden Unittests ausgeführt, die Code-Coverage (Abdeckung des Codes durch Unittests) gemessen und Probleme festgestellt.
+
+Link zu Jenkins/SonarQube, sowie deren Login-Daten sind in der
+link:../../../../readme.ci.adoc[`readme.ci.adoc`] Datei im Repository zu finden.
+
+== Aktueller Stand
+
+- VideoShop-Prototypen fertig
+- Pflichtenheft im Großen und Ganzen fertig. Ein paar Feinheiten noch verbesserungsfähig
+
+== Was ist zu tun?
+
+*Nächster Meilenstein ist am 17.11.2019*
+
+- *Entwurfsklassendiagramm* auf Basis vom Klassenanalysediagramm erstellen. +
+_(Empfohlen: Früh Anfangen!)_
+- link:../test_plan.adoc[*Testplan*] auf Basis von Akzeptanztestfällen und Use-Cases erstellen, Unittests ebenfalls in Betracht ziehen
+- Ersten *Prototyp* implementieren. +
+(Komponenten _siehe https://github.com/st-tu-dresden-praktikum/swt19w12/blob/master/src/main/asciidoc/pflichtenheft.adoc#tla[TLA]_
+untereinander verteilen, jedoch trotzdem eher im Team arbeiten. Dafür einen neuen Branch von master abzweigen, ggf. auch das Git Workflow Modell anwenden.
+Vollständig implementierte Features und gutes Aussehen sind nicht zwingend notwendig.)

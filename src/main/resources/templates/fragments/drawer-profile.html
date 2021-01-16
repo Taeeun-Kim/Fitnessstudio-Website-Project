@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="de">
+
+<body>
+
+<div class="fragment-profile drawer" th:fragment="drawer-profile" th:with="url=${#httpServletRequest.requestURI}">
+    <a class="drawer_item" th:href="@{/profile}" th:classappend="${url.equals('/profile')} ? 'selected'">Allgemein</a>
+    <!-- Customer -->
+    <th:block sec:authorize="hasRole('CUSTOMER')">
+        <a class="drawer_item" th:href="@{/profile/account}" th:classappend="${url.equals('/profile/account')} ? 'selected'">Konto</a>
+    </th:block>
+</div>
+
+</body>
+
+</html>

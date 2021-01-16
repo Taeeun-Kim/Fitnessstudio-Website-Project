@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/desk.css}"/>
+    <title>Fitnessstudio &mdash; Empfang</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div class="left-column"></div>
+<main class="page-desk">
+    <div>
+        <h2>Check-In</h2>
+        <form class="checkin" th:action="@{/desk/checkin}" method="post" th:object="${form}">
+            <input name="id" class="textfield" placeholder="Kundennummer" th:field="*{customer}" required>
+            <div class="error" th:if="${#fields.hasErrors('customer')}" th:errors="*{customer}"></div>
+            <div class="actions">
+                <input type="submit" class="btn-raised" value="Check In">
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <h2>Beim Training</h2>
+        <div class="info" th:if="${activeCustomers.empty}">Aktuell sind keine Mitglieder im Fitnessstudio.</div>
+        <form class="customer" th:each="customer : ${activeCustomers}" th:action="@{/desk/checkout}" method="post">
+            <input type="hidden" name="id" th:value="${customer.id}">
+            <span class="customer_id" th:text="'#' + ${customer.id}"></span>
+            <span class="customer_name" th:text="|${customer.userAccount.firstname} ${customer.userAccount.lastname}|"></span>
+            <input type="submit" class="btn customer_submit" value="Check Out">
+        </form>
+    </div>
+</main>
+<div class="right-column"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/static/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/admin/contracts.css}"/>
+    <title>Einstellungen &mdash; Verträge</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+
+<div th:classappend="left-column" th:replace="fragments/drawer-settings :: drawer-settings"></div>
+<main class="page-admin-contracts_edit">
+    <a class="btn back" th:href="@{/admin/contracts}">Zurück</a>
+    <form class="contract" method="post" th:action="@{/admin/contracts/{id}(id=${id})}" th:object="${contractForm}">
+        <h2>Vertrag bearbeiten</h2>
+        <h3>Name</h3>
+        <input class="textfield" name="title" type="text" placeholder="Titel" th:field="*{title}" required/>
+        <div class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+        <h3>Beschreibung</h3>
+        <textarea class="textfield" name="description" cols="32" rows="5" type="text" placeholder="Beschreibung" th:field="*{description}" required></textarea>
+        <div class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        <h3>Gebühr</h3>
+        <input class="textfield" name="fee" type="number" step="0.01" min="0" placeholder="Preis" th:field="*{fee}" required/>
+        <div class="error" th:if="${#fields.hasErrors('fee')}" th:errors="*{fee}"></div>
+        <div class="actions">
+            <a class="btn" href="">Verwerfen</a>
+            <input type="submit" class="btn-raised" value="Speichern">
+        </div>
+    </form>
+</main>
+<div class="right-column">
+</div>
+
+</body>
+
+</html>

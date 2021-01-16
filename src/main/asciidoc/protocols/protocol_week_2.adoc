@@ -1,0 +1,95 @@
+﻿= Protokoll Gruppe 12
+
+Treffen am 24.10.2019
+
+Ort:   APB/E067 +
+Beginn:   16:40 Uhr +
+Ende:     18:00 Uhr
+
+__Schriftführer: René__
+
+*Nächstes Treffen:* +
+23.10.2019, 13:00 Uhr, APB
+
+__Teilnehmer:__
+
+- Emanuel
+- Moritz
+- Tom
+- Taeeun
+- Duy
+- René
+- Anita(Tutorin)
+
+== Bemerkungen
+
+- Vorstellungsrunde
+- Rücktritte vor Prüfungs Anmeldung bekannt geben.
+- Klausureinsicht am 30.10.2019
+- Nächsten 2 Dienstage Vorlesungen in der 6sten DS zu Spring/Salespoint
+- Danach erfolgt Lernraum zur selben Zeit
+
+=== Erstes Kundengespräch
+
+- Es soll einen Kalender (Schichtplan) geben. Keine Mindestanzahl von Mitarbeitern während der Öffnungszeit
+- Probetrainings werden online angefragt und von Mitarbeitern bestätigt
+- Zeitaufnahme erfolgt über Theke mit Ansagen der Kundennummer beim betreten/verlassen
+- Statistiken sind einsehbar vom Chef
+- Rechnungen werden für den vergangenden Monat als PDF erstellt
+- Monatsbeiträge über SEPA Lastschrift (Knopf drücken nach dem registrieren)
+- Einzahlungen in bar an der Theke möglich
+- An der Theke gibt es Artikel mit und ohne Verfallsdatum
+- Artikel, die die Mindestmenge unterschreiten, sollen farblich markiert werden
+- Urlaube werden vom Chef genehmigt/abgelehnt
+
+==== Mehrere rollen und Zugangsberechtigungen:
+
+*Chef:* Rabatte vergeben, Lohn einsehen, Laufende Kosten anschauen, Darf alles was Mitarbeiter auch dürfen
+
+*Mitarbeiter:* Eigene Daten ändern, Dienstplan einsehen, Theke bedienen _(Verkäufer)_
+
+*Kunden:* Freunde anwerben, Probetraining aussuchen
+
+== Retrospektive des letzten Sprints
+
+- Alle haben IDE und Guestbook zum laufen bekommen und sich damit auseinandergesetzt
+- Protokoll vom ersten Treffen hochgeladen
+
+== Aktueller Stand
+
+- Git-Verknüpfung mit Discord eingerichtet
+- An Videoshop-Prototypen gearbeitet
+- Mit Pflichtenheft begonnen
+
+== Planung des nächsten Sprints
+
+* Klassenanalysediagramm erstellen
+* Pflichtenheft ausfüllen
+
+|===
+|Issue |Titel |Beschreibung |Verantwortlicher |Status
+
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/3[#3]  | PDF erstellen (hard)
+| Für Rechnungen/Käufe werden automatisch PDFs erstellt die per Knopfdruck angezeigt/heruntergeladen werden können
+| Moritz | Fertig
+
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/3[#3] | Rabatte (hard)
+| Rabatte sollen manuell vom Admin/Boss eingestellt werden können
+| Emanuel | Fertig
+
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/3[#3] | Bewertungen (medium)
+| Crash abfangen wenn eine Bewertung von mehr als 5 Sternen eingegeben wird Dementsprechend Hinweis einfügen + “Kippschalter” an der Seite Limitieren (wie beim Bestellen); Durchschnitt aller Bewertungen berechnen
+| Tom | Fertig
+
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/3[#3] | Bestellungen (medium)
+| Crash abfangen wenn man mehr Filme bestellt als vorhanden sind bei der Bestellung anzeigen wie viele Kopien dieses Artikels schon im Warenkorb sind 
+| René | fertig
+
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/3[#3] | Registrierung (easy)
+| Crash abfangen wenn der Nutzername schon vergeben ist, graphische Rückmeldung
+| Duy | Fertig
+
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/3[#3] | Kategorien (easy)
+| Auf der Seite von Filmen anzeigen ob es sich um eine DVD oder BluRay handelt
+| Taeeun | Fertig
+|===

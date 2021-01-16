@@ -1,0 +1,50 @@
+@import "../main";
+@import "../components/textfield";
+@import "../fragments/navigation";
+@import "../layouts/dashboard";
+
+.page-desk {
+    max-width: 48rem;
+
+    > *:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    .checkin {
+        position: relative;
+        padding: 3rem 2rem 2rem;
+
+        border-radius: 0.125rem;
+        background-color: $surface-color;
+    }
+
+    .customer {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        margin-top: 1rem;
+
+        border-radius: 0.125rem;
+        background-color: $surface-color;
+
+        > * {
+            margin-bottom: 0;
+        }
+
+        .customer_id {
+            font-family: "Poppins", sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-right: 1rem;
+        }
+
+        .customer_submit {
+            margin-left: auto;
+        }
+    }
+}

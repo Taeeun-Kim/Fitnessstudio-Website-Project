@@ -1,0 +1,46 @@
+@import "../main";
+
+.card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    background-color: $surface-color;
+    border-radius: 0.25rem;
+
+    &[href]:hover {
+        box-shadow: $shadow;
+        cursor: pointer;
+    }
+
+    .card_image {
+        flex-shrink: 0;
+        display: block;
+        width: 100%;
+        height: 12rem;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .card_content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+        overflow-y: hidden;
+
+        > * {
+            padding: 0 1rem;
+        }
+
+        .card_description {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .card_price {
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+    }
+}

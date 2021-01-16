@@ -1,0 +1,52 @@
+= Protokoll Gruppe 12
+
+Treffen am 21.11.2019
+
+Ort:      APB/E065 +
+Beginn:   16:40 Uhr +
+Ende:     17:15 Uhr
+
+_Schriftführer: Emanuel Pilz_
+
+*Nächstes Treffen:* +
+29.11.2019, 16:40 Uhr, TBA
+
+_Teilnehmer_
+
+- Anita _(Tutor)_
+- Moritz Lumme
+- Emanuel Pilz
+- Duy Nhu
+- René Dannroth
+- Tom Felber
+- Taeeun Kim
+
+== Was ist zu tun?
+
+Entwicklerdokumentation schreiben
+Kommunikation verbessern
+
+== Was wurde besprochen?
+
+- Fitnessstudio-Prototypen vorgestellt
+
+=== Zwischenpräsentation
+
+- Ist am 29.11. in der 6. DS
+- Keine Diagramme zeigen
+
+=== Antrag SCSS Bibliothek
+
+- Kein SCSS :(
+
+== Planung des nächsten Sprints
+
+|===
+| Issue |Titel |Beschreibung |Verantwortlicher |Status
+
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/18[#18] | Schedule | Dienstplan | Moritz Lumme | In Arbeit
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/17[#17] | Statistics | Statistiken | Emanuel Pilz | In Arbeit
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/16[#16] | Data | Daten | Tom Felber | In Arbeit
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/15[#15] | User | Nutzer | Duy Nhu | In Arbeit
+| https://github.com/st-tu-dresden-praktikum/swt19w12/issues/14[#14] | Shop | Theke | René Dannroth, Taeeun Kim | In Arbeit
+|===

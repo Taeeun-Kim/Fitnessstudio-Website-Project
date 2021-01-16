@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<body>
+
+<div class="fragment-settings drawer" th:fragment="drawer-settings" th:with="url=${#httpServletRequest.requestURI}">
+    <a class="drawer_item" th:href="@{/admin}" th:classappend="${url.equals('/admin')} ? 'selected'">Allgemein</a>
+    <a class="drawer_item" th:href="@{/admin/contracts}" th:classappend="${url.startsWith('/admin/contracts')} ? 'selected'">Verträge</a>
+    <a class="drawer_item" th:href="@{/admin/employees}" th:classappend="${url.startsWith('/admin/employees')} ? 'selected'">Mitarbeiter</a>
+    <a class="drawer_item" th:href="@{/admin/holidays}" th:classappend="${url.startsWith('/admin/holidays')} ? 'selected'">Urlaubsanträge</a>
+    <a class="drawer_item" th:href="@{/admin/discounts}" th:classappend="${url.startsWith('/admin/discounts')} ? 'selected'">Rabatt</a>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+@import "../../main";
+@import "../../fragments/navigation";
+@import "../../layouts/dashboard";
+
+h2, h3 {
+    margin-bottom: 1rem;
+
+    &:not(:first-child) {
+        margin-top: 2rem;
+    }
+}
+
+.title {
+    font-weight: 700;
+}
+
+.page-shop_orders {
+    .orders {
+        .order {
+            display: grid;
+            grid-template-columns: 2fr 3fr 1fr;
+            padding: 1rem;
+
+            background-color: $surface-color;
+
+            &:hover {
+                box-shadow: $shadow;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+
+            span {
+                white-space: nowrap;
+            }
+
+            .total {
+                text-align: right;
+            }
+        }
+    }
+}
+
+.page-shop_order {
+    max-width: 48rem;
+
+    .order, .coupon {
+        padding: 2rem;
+
+        background-color: $surface-color;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .order {
+        .details {
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            grid-gap: 1rem;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: 1fr 1fr min-content;
+            grid-gap: 1rem;
+
+            .product {
+                display: contents;
+
+                span {
+                    white-space: nowrap;
+                }
+
+            }
+        }
+
+        .total {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: baseline;
+
+            h3 {
+                margin: 0 0 0 1rem;
+            }
+        }
+    }
+
+    .coupon {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        > *:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        .code {
+            padding: 0.5rem 1rem;
+            font-family: "Poppins", sans-serif;
+
+            border: 1px solid $primary-color;
+            border-radius: 0.125rem;
+        }
+    }
+}

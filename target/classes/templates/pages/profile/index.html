@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="de">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/assets/icons/favicon.png}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/pages/profile.css}"/>
+    <title>Fitnessstudio &mdash; Konto</title>
+</head>
+
+<body>
+
+<header th:replace="fragments/navigation :: navigation"></header>
+<div th:classappend="left-column" th:replace="fragments/drawer-profile :: drawer-profile"></div>
+<main class="page-profile">
+    <div class="id" th:if="${id}">
+        <span>Kundennummer:</span>
+        <h2 th:text="${id}"></h2>
+    </div>
+    <form method="post" role="form" th:action="@{/profile}" th:object="${profileForm}">
+        <div class="info" th:if="${info}" th:text="${info}"></div>
+        <h3>Nutzerdaten</h3>
+        <input class="textfield" name="email" type="text" placeholder="E-Mail" th:field="*{email}"/>
+        <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <div class="row">
+            <input class="textfield form-firstname" name="firstname" type="text" placeholder="Vorname" th:field="*{firstname}"/>
+            <input class="textfield form-lastname" name="lastname" type="text" placeholder="Nachname" th:field="*{lastname}"/>
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></div>
+        <div class="error" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
+        <h3>Passwort</h3>
+        <input class="textfield" name="oldPw" type="password" placeholder="Altes Passwort" th:field="*{oldPw}"/>
+        <div class="error" th:if="${#fields.hasErrors('oldPw')}" th:errors="*{oldPw}"></div>
+        <input class="textfield" name="password" type="password" placeholder="Neues Passwort" th:field="*{password}"/>
+        <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        <input class="textfield" name="repeatPassword" type="password" placeholder="Neues Passwort Wiederholen" th:field="*{repeatPassword}"/>
+        <div class="error" th:if="${#fields.hasErrors('repeatPassword')}" th:errors="*{repeatPassword}"></div>
+        <h3>Adresse</h3>
+        <div class="row">
+            <input class="textfield form-street" name="street" placeholder="Straße" th:field="*{street}">
+            <input class="textfield form-number" name="number" placeholder="Nr." th:field="*{number}">
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></div>
+        <div class="error" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></div>
+        <div class="row">
+            <input class="textfield form-code" name="code" type="number" placeholder="PLZ" min="0" th:field="*{code}">
+            <input class="textfield form-location" name="location" placeholder="Ort" th:field="*{location}">
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></div>
+        <div class="error" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></div>
+        <div class="actions">
+            <input class="btn" type="reset" value="Verwerfen"/>
+            <input class="btn-raised" type="submit" value ="Speichern"/>
+        </div>
+    </form>
+</main>
+<div class="right-column">
+    <a class="btn-raised" th:href="@{/profile/account/pdf}" sec:authorize="hasRole('EMPLOYEE')">Gehaltsbeleg</a>
+    <form th:if="${sus}" sec:authorize="hasRole('CUSTOMER')" th:action="@{/profile/suspense}" method="post">
+        <input type="submit" class="btn-raised" value="Mitgliedschaft aussetzen"/>
+    </form>
+</div>
+</body>
+
+</html>

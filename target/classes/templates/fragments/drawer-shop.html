@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+
+<body>
+
+<div class="fragment-settings drawer" th:fragment="drawer-shop" th:with="url=${#httpServletRequest.requestURI}">
+    <a class="drawer_item" th:href="@{/shop}" th:classappend="${url.equals('/shop')} ? 'selected'">Katalog</a>
+    <a class="drawer_item" th:href="@{/shop/cart}" th:classappend="${url.startsWith('/shop/cart')} ? 'selected'">Warenkorb</a>
+    <a class="drawer_item" th:href="@{/shop/coupon}" th:classappend="${url.startsWith('/shop/coupon')} ? 'selected'">Coupons</a>
+    <h3 class="drawer_header">Lager</h3>
+    <th:block th:with="filter=${#request.getParameter('filter')}">
+        <a class="drawer_item" th:href="@{/shop/stock}" th:classappend="${url.startsWith('/shop/stock') && (filter == null || filter.isBlank())} ? 'selected'">Vorrätig</a>
+        <a class="drawer_item" th:href="@{/shop/stock(filter='sold')}" th:classappend="${url.startsWith('/shop/stock') && filter != null && filter.equals('sold')} ? 'selected'">Ausverkauft</a>
+        <a class="drawer_item" th:href="@{/shop/stock(filter='expired')}" th:classappend="${url.startsWith('/shop/stock') && filter != null && filter.equals('expired')} ? 'selected'">Abgelaufen</a>
+    </th:block>
+</div>
+
+</body>
+
+</html>
