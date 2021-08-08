@@ -23,3 +23,9 @@ Run the 'Build & Run' task.
 == How to package the application?
 
 Run `./mvnw clean package`. The packaged application (a JAR in `target/`) can be run with `java -jar $jarName`.
+
+== Overview
+
+image::src/img/Lager.jpg[]
+
+image::src/img/Schedule.jpg[]
