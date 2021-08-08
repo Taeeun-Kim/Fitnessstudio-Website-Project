@@ -13,6 +13,7 @@ link:https://st-lab-ci.inf.tu-dresden.de/[Continuous Integration] &mdash;
 link:src/main/asciidoc/developer_documentation.adoc[Entwicklerdokumentation]&mdash;
 link:src/main/asciidoc/cross_testing_readme.adoc[Cross Testing]*
 
+Team project of software engineering module at TU Dresden University
 
 == How to run the application?
 
